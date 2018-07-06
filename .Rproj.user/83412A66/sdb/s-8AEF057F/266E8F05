@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#' Add tips not on existing tree to the tree\n#'\n#' @param absent Vector of taxa in the total dataset that are not on the tree\n#' @param tree Phylogeny\n#'\nlibrary(ape)\nlibrary(phytools)\nlibrary(phylobase)\n\ntippR <- function(absent, tree){\n  tree_df <- data.frame(matrix(ncol = 2, nrow = length(tree$tip.label)))\n  absent_df <- data.frame(matrix(ncol = 2, nrow = length(absent)))\n  x <- c(\"genera\", \"fullnames\")\n  colnames(tree_df) <- x\n  colnames(absent_df) <- x\n  tree_df$genera <- sapply(strsplit(tree$tip.label, \"_\"), `[`, 1)\n  tree_df$fullnames <- tree$tip.label\n  absent_df$genera <- sapply(strsplit(absent, \"_\"), `[`, 1)\n  absent_df$fullnames <- absent\n\n  tree_gen <- data.frame(matrix(ncol = 2, nrow = length(absent_df)))\n  not_gen <- data.frame(matrix(ncol = 2, nrow = length(absent_df)))\n  x <- c(\"genera\", \"fullnames\")\n  colnames(tree_gen) <- x\n  colnames(not_gen) <- x\n\n  found_gen <- list()\n  found_full <- list()\n\n  not_found_gen <- list()\n  not_found_full <- list()\n\n  for (row in 1:nrow(absent_df)) {\n    gen <- absent_df[row, \"genera\"]\n    print(gen)\n    full <- absent_df[row, \"fullnames\"]\n    found_gen[[row]] <- gen[which(gen %in% tree_df$genera)]\n    found_full[[row]] <- full[which(gen %in% tree_df$genera)]\n    not_found_gen[[row]] <- gen[which(!gen %in% tree_df$genera)]\n    not_found_full[[row]] <- full[which(!gen %in% tree_df$genera)]\n  }\n  found_gen <- found_gen[lapply(found_gen,length)>0]\n  not_found_gen <- not_found_gen[lapply(not_found_gen,length)>0]\n  found_full <- found_full[lapply(found_full,length)>0]\n  not_found_full <- not_found_full[lapply(not_found_full,length)>0]\n  found_df <- do.call(rbind, Map(data.frame, A=found_gen, B=found_full))\n  not_found_df <- do.call(rbind, Map(data.frame, A=not_found_gen, B=not_found_full))\n\n  for (row in 1:nrow(found_df)) {\n  gen <- found_df[row, \"A\"]\n  full <- as.character(found_df[[row, \"B\"]])\n  print(full)\n  mrca_list <- list()\n  mrca_list <- tree_df$fullnames[tree_df$genera==gen]\n  if (length(mrca_list) > 1) {\n    loc <- findMRCA(tree, mrca_list)\n  tree <- bind.tip(tree,full,where=loc)\n  }else if (length(mrca_list) <= 1) {\n    loc <- getParent(tree, mrca_list)\n    tree <- bind.tip(tree,full,where=loc,\n                     position= 0.5*tree$edge.length[which(tree$edge[,2]==loc)])\n  }\n  new_tree <- multi2di(tree, random = TRUE)\n  }\n  for (row in 1:nrow(not_found_df)) {\n    full <- as.character(not_found_df[[row, \"B\"]])\n    plot(new_tree)\n    nodelabels()\n    num <- readline(cat(sprintf(\"Where would you like to put %s Enter a node number\n                              from the tree that popped up\", full)) )\n    num <- as.numeric(unlist(strsplit(num, \",\")))\n    pos <- 0.4*(tree$edge.length[which(tree$edge[,2]==num)])\n    new_tree <- bind.tip(new_tree,full,where=num,\n                         edge.length  = 0.4*pos)\n  }\n  final_tree <- multi2di(new_tree, random = TRUE)\n  return(final_tree)\n}\n",
+    "created" : 1530828579032.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1705878704",
+    "id" : "266E8F05",
+    "lastKnownWriteTime" : 1530917553,
+    "last_content_update" : 1530917553914,
+    "path" : "~/software/treeStartR/R/tippR.R",
+    "project_path" : "R/tippR.R",
+    "properties" : {
+        "tempName" : "Untitled3"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

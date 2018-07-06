@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#' Detect file format of taxon list (molecular, morphological, and stratigraphic) and maximum age of fossil, see RevBayes\n#' total-evidence fossil file for an example of this.\n#'\n#' @param dataf A data frame with one column containing the taxon name of tips in\n#' phylogenetic tree, and one column indicating the maximum age of the tip. If\n#' the tip is extant, use 0.0 as the age.\n\ndataf_parsR <- function(dataf) {\n  if (endsWith(dataf, '.tsv') == TRUE) {\n    df = read.csv(file = dataf, sep = \"\\t\")\n  } else {\n    df = read.csv(file = dataf)\n  }\n  tax_list= df[c('taxon', 'age')]\n  return(tax_list)\n}\n",
+    "created" : 1530825579974.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1604370023",
+    "id" : "A45AC48A",
+    "lastKnownWriteTime" : 1530831521,
+    "last_content_update" : 1530831521979,
+    "path" : "~/software/treeStartR/R/dataframe_loadR.R",
+    "project_path" : "R/dataframe_loadR.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

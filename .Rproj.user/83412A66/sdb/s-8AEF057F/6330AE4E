@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#' See which morphological & stratigraphic genera are represented\n#' in the molecular tree\n#'\n#' @param tree Starting phylogeny\n#' @param total_set Total set of taxa on tree\n#'\ngenera_strippR <- function(tree, tax_list){\n  total_set <- unname(unlist(lapply(tax_list[\"taxon\"], as.character)))\n  (absent <- unlist(total_set[which(!total_set %in% tree$tip.label)]))\n  return(absent)\n}\n\n",
+    "created" : 1530827483684.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2504225716",
+    "id" : "6330AE4E",
+    "lastKnownWriteTime" : 1530911656,
+    "last_content_update" : 1530911656179,
+    "path" : "~/software/treeStartR/R/genera_strippR.R",
+    "project_path" : "R/genera_strippR.R",
+    "properties" : {
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
