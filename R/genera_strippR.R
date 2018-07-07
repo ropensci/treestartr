@@ -8,8 +8,14 @@
 #' @export
 #'
 genera_strippR <- function(tree, tax_list){
+  if(!inherits(tree,"phylo")){
+    stop("tree must be of class 'phylo'")
+  } else if (inherits(tree,"phylo")){
+    print("Listing total set taxa not present on tree:")
+  }
   total_set <- unname(unlist(lapply(tax_list["taxon"], as.character)))
   (absent <- unlist(total_set[which(!total_set %in% tree$tip.label)]))
+  print(absent)
   return(absent)
 }
 
