@@ -1,0 +1,57 @@
+#NEXUS
+[R-package APE, Sat Jul  7 12:04:25 2018]
+
+BEGIN TAXA;
+	DIMENSIONS NTAX = 22;
+	TAXLABELS
+		Kretzoiarctos_beatrix
+		Ailurarctos_lufengensis
+		Ailuropoda_melanoleuca
+		Agriarctos_spp
+		Indarctos_punjabiensis
+		Indarctos_vireti
+		Indarctos_arctoides
+		Parictis_montanus
+		Ursavus_primaevus
+		Ursavus_brevirhinus
+		Ursus_arctos
+		Ursus_maritimus
+		Ursus_spelaeus
+		Ursus_americanus
+		Ursus_thibetanus
+		Helarctos_malayanus
+		Ursus_abstrusus
+		Melursus_ursinus
+		Arctodus_simus
+		Tremarctos_ornatus
+		Ballusia_elmensis
+		Zaragocyon_daamsi
+	;
+END;
+BEGIN TREES;
+	TRANSLATE
+		1	Kretzoiarctos_beatrix,
+		2	Ailurarctos_lufengensis,
+		3	Ailuropoda_melanoleuca,
+		4	Agriarctos_spp,
+		5	Indarctos_punjabiensis,
+		6	Indarctos_vireti,
+		7	Indarctos_arctoides,
+		8	Parictis_montanus,
+		9	Ursavus_primaevus,
+		10	Ursavus_brevirhinus,
+		11	Ursus_arctos,
+		12	Ursus_maritimus,
+		13	Ursus_spelaeus,
+		14	Ursus_americanus,
+		15	Ursus_thibetanus,
+		16	Helarctos_malayanus,
+		17	Ursus_abstrusus,
+		18	Melursus_ursinus,
+		19	Arctodus_simus,
+		20	Tremarctos_ornatus,
+		21	Ballusia_elmensis,
+		22	Zaragocyon_daamsi
+	;
+	TREE * UNTITLED = [&R] ((((((1,((2,((3),4)),((5,6),(7)))))),(((8,(((((11,12),13),((14,15),16)),9),(17,10))),18),(19,20))),21),22);
+END;

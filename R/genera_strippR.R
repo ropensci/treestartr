@@ -1,8 +1,11 @@
 #' See which morphological & stratigraphic genera are represented
 #' in the molecular tree
 #'
-#' @param tree Starting phylogeny
-#' @param total_set Total set of taxa on tree
+#' @param tree Starting phylogeny, of type phylo
+#' @param total_set Total set of taxa on tree, as dataframe
+#' @return list of taxa that are present in the total set of trees, but not the
+#'        starting tree
+#' @export
 #'
 genera_strippR <- function(tree, tax_list){
   total_set <- unname(unlist(lapply(tax_list["taxon"], as.character)))

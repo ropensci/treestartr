@@ -3,7 +3,9 @@
 #'
 #' @param dataf A data frame with one column containing the taxon name of tips in
 #' phylogenetic tree, and one column indicating the maximum age of the tip. If
-#' the tip is extant, use 0.0 as the age.
+#' the tip is extant, use 0.0 as the age. Can be CSV or TSV.
+#' @return tax_list Dataframe containing the total set of tips on the tree
+#' @export
 
 dataf_parsR <- function(dataf) {
   if (endsWith(dataf, '.tsv') == TRUE) {

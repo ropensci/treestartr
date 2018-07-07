@@ -1,11 +1,13 @@
 #' Add tips not on existing tree to the tree
 #'
 #' @param absent Vector of taxa in the total dataset that are not on the tree
-#' @param tree Phylogeny
+#' @param tree Starting tree; object of type phylo
+#' @return final_tree. Phylo object containing the starting tree,
+#'          and all tips that were added.
+#' @import ape
+#' @import phytools
+#' @export
 #'
-library(ape)
-library(phytools)
-library(phylobase)
 
 tippR <- function(absent, tree){
   tree_df <- data.frame(matrix(ncol = 2, nrow = length(tree$tip.label)))
