@@ -10,6 +10,10 @@
 #'
 
 present_tippR <- function(absent_list, tree){
+  if(!inherits(tree,"phylo")){
+    stop("tree must be of class 'phylo'")
+  }
+
   found_df <- get_found(absent_list, tree)
   tree_df <- make_treedf(tree)
 
@@ -21,9 +25,8 @@ present_tippR <- function(absent_list, tree){
     mrca_list <- list()
     mrca_list <- tree_df$fullnames[tree_df$genera==gen]
     if (length(mrca_list) > 1) {
-      print('Adding tip via MRCA')
       loc <- findMRCA(tree, mrca_list)
-      print(loc)
+      sprintf('Adding tip via MRCA at %d', loc)
       tree <- bind.tip(tree,full,where=loc)
     }else if (length(mrca_list) <= 1) {
       print('Adding tip via parent node')

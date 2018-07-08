@@ -17,8 +17,7 @@ rand_absent_tippR <- function(absent_list, tree){
 
   for (row in 1:nrow(lost_df)) {
     full <- as.character(lost_df[[row, "B"]])
-    print('Adding tips at random:')
-    print(full)
+    sprintf('Adding tips at random: %s', full)
     nodel <- tree$edge[,2]
     num <- sample(nodel, 1)
     tree <- bind.tip(tree, full, where=num)

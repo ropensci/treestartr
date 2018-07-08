@@ -1,0 +1,4 @@
+#NEXUS
+begin trees;
+	tree TREE1 = [&R] (((((((((Ailuropoda_melanoleuca:7.788939):1.138193,Agriarctos_spp:2.036384):1.701308,((Indarctos_arctoides:0.78653):0.818172,Indarctos_vireti:1.607207):0.724002):1.033656):4.206646):0.860569):2.827305,(((((Ursus_americanus:2.508984,Ursus_thibetanus:2.508984):0.62563,Helarctos_malayanus:3.134614):0.852232,((Ursus_arctos:1.35317,Ursus_maritimus:1.35317):1.24719,Ursus_spelaeus:2.429473):1.386487):2.407999,Melursus_ursinus:6.394846):4.017491,(Arctodus_simus:3.113948,Tremarctos_ornatus:4.946138):5.466199):9.14428):5.266872,Ballusia_elmensis:3.735619):6.344514,Zaragocyon_daamsi:9.521951);
+end;
