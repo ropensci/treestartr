@@ -2,4 +2,3 @@
 ^\.Rproj\.user$
 .travis.yml
 ^codecov\.yml$
-warnings_are_errors: false
