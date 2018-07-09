@@ -2,7 +2,6 @@
 #'
 #' @param tree Starting tree; object of type phylo
 #' @return dataframe Dataframe objects expressing the tips, and their genera
-#' @import ape
 #' @import phytools
 #'
 

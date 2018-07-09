@@ -10,7 +10,7 @@ genera_strippR(tree, tax_list)
 \arguments{
 \item{tree}{Starting phylogeny, of type phylo}
 
-\item{total_set}{Total set of taxa on tree, as dataframe}
+\item{tax_list}{Total set of taxa on tree, as dataframe}
 }
 \value{
 list of taxa that are present in the total set of trees, but not the

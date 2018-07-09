@@ -4,7 +4,6 @@
 #' @param tree Starting tree; object of type phylo
 #' @return tree. Phylo object containing the starting tree,
 #'          and all tips that were added.
-#' @import ape
 #' @import phytools
 #' @export
 #'

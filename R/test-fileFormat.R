@@ -1,7 +1,8 @@
+#' Test file format is csv or tsv
 #' @param dataf A data frame with one column containing the taxon name of tips in
 #' phylogenetic tree, and one column indicating the maximum age of the tip. If
 #' the tip is extant, use 0.0 as the age. Can be CSV or TSV.
-#' @return 0
+#' @return None
 #' @export
 
 fileFormat <- function(dataf) {

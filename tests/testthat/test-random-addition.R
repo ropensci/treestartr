@@ -1,5 +1,7 @@
 library(testthat)
 library(ape)
+library(phytools)
+
 
 test_that('Test rand_absent_tippR(absent_list, tree)',{
   tree <- read.nexus('testdata/simple.tre')

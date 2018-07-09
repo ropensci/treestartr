@@ -2,10 +2,10 @@
 #' do not have congeners on the tree
 #'
 #' @param tree Starting tree; object of type phylo
+#' @param absent_list Vector of taxa in the total dataset that are not on the tree
+
 #' @return dataframe Dataframe objects expressing the tips that are not
 #'         on the tree, and don't have congeners
-#' @import ape
-#' @import phytools
 #'
 
 get_lost <- function(absent_list, tree){

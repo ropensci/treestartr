@@ -6,10 +6,10 @@
 #' @param tree Starting tree; object of type phylo
 #' @return tree. Phylo object containing the starting tree,
 #'          and all tips that were added.
-#' @import ape
 #' @import phytools
+#' @import dplyr
 #' @export
-library(dplyr)
+
 text_placR <- function(tree, mrca_df){
   iter <- unique(as.character(mrca_df$taxon))
   for (tax in iter) {
