@@ -10,7 +10,7 @@ parse_morphology(morphDat)
 \item{morphDat}{A Nexus file containing morphological matrix}
 }
 \value{
-A vector of names present in either the matrix
+morph_ns A vector of names present in either the matrix
 }
 \description{
 Load morpohological matrices to get taxon lists

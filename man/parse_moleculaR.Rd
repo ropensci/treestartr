@@ -10,7 +10,7 @@ parse_moleculaR(molDat)
 \item{molDat}{A Nexus file containing molecular matrix}
 }
 \value{
-A vector of names present in either the matrix
+mol_ns A vector of names present in either the matrix
 }
 \description{
 Load molecular matrices to get taxon lists of each

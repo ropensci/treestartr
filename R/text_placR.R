@@ -6,8 +6,6 @@
 #' @param tree Starting tree; object of type phylo
 #' @return tree. Phylo object containing the starting tree,
 #'          and all tips that were added.
-#' @import phytools
-#' @import dplyr
 #' @export
 
 text_placR <- function(tree, mrca_df){
@@ -20,7 +18,7 @@ text_placR <- function(tree, mrca_df){
     loc <- findMRCA(tree, mrca_list)
     x <-  sprintf('Placing tip at node %d', loc)
     print(x)
-    tree <- bind.tip(tree, tax, where=loc)
+    tree <- phytools::bind.tip(tree, tax, where=loc)
   }
   return(tree)
   }
