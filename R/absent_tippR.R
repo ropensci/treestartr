@@ -7,23 +7,26 @@
 #' @export
 #'
 
-absent_tippR <- function(absent_list, tree){
-  if(!inherits(tree,"phylo")){
+absent_tippr <- function(absent_list, tree){
+#Ensure our tree is a phylo object.
+    if (!inherits(tree, "phylo")){
     stop("tree must be of class 'phylo'")
-  }
-  lost_df <- get_lost(absent_list, tree)
-
+    }
+#Get list of taxa with no congeners on tree
+  lost_df <- get_lost( absent_list, tree)
+#Iterate over lost_df, adding these tips to tree
   for (row in 1:nrow(lost_df)) {
     full <- as.character(lost_df[[row, "B"]])
-    print('Adding tips:')
+    print("Adding tips:")
     print(full)
     plot(tree)
     nodelabels()
-    num <- readline(cat(sprintf("Where would you like to put %s Enter a node number
-                                from the tree that popped up", full)) )
+#Add tips to tree via user input
+    num <- readline(cat(sprintf("Where would you like to put %s Enter
+                                a node number from the tree that popped up",
+                                full)) )
     num <- as.numeric(unlist(strsplit(num, ",")))
-    pos <- 0.4*(tree$edge.length[which(tree$edge[,2]==num)])
-    tree <- bind.tip(tree,full,where=num)
+    tree <- bind.tip(tree, full, where = num)
   }
   return(tree)
 }

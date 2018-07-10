@@ -5,7 +5,7 @@
 #' @param absent_list Vector of taxa in the total dataset that are not on the tree
 
 #' @return not_found_df Dataframe objects expressing the tips that are not
-#'         on the tree, and don't have congeners
+#'         on the tree, and don"t have congeners
 #'
 
 get_lost <- function(absent_list, tree){
@@ -21,15 +21,16 @@ get_lost <- function(absent_list, tree){
   not_found_gen <- list()
   not_found_full <- list()
 
-  for (row in 1:nrow(absent_df)) {
+    for (row in 1:nrow(absent_df)) {
     gen <- absent_df[row, "genera"]
     print(gen)
     full <- absent_df[row, "fullnames"]
     not_found_gen[[row]] <- gen[which(!gen %in% tree_df$genera)]
     not_found_full[[row]] <- full[which(!gen %in% tree_df$genera)]
   }
-  not_found_gen <- not_found_gen[lapply(not_found_gen,length)>0]
-  not_found_full <- not_found_full[lapply(not_found_full,length)>0]
-  not_found_df <- do.call(rbind, Map(data.frame, A=not_found_gen, B=not_found_full))
+  not_found_gen <- not_found_gen[lapply(not_found_gen, length) > 0]
+  not_found_full <- not_found_full[lapply(not_found_full, length) > 0]
+  not_found_df <- do.call(rbind, Map(data.frame, A = not_found_gen,
+                                     B = not_found_full))
   return(not_found_df)
 }

@@ -1,3 +1,3 @@
 library(testthat)
-library(treeStartR)
-test_check("treeStartR")
+library(treestartr)
+test_check("treestartr")

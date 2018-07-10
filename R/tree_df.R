@@ -6,7 +6,7 @@
 #'
 
 make_treedf <- function(tree){
-  if(!inherits(tree,"phylo")){
+  if (!inherits(tree, "phylo")){
     stop("tree must be of class 'phylo'")
   }
   tree_df <- data.frame(matrix(ncol = 2, nrow = length(tree$tip.label)))
@@ -16,5 +16,3 @@ make_treedf <- function(tree){
   tree_df$fullnames <- tree$tip.label
   return(tree_df)
 }
-
-
