@@ -1,9 +1,8 @@
 #' Determine which tips that are not on the tree, puts them in a dataframe if they
 #' do not have congeners on the tree
 #'
-#' @param tree Starting tree; object of type phylo
 #' @param absent_list Vector of taxa in the total dataset that are not on the tree
-
+#' @param tree Starting tree; object of type phylo
 #' @return not_found_df Dataframe objects expressing the tips that are not
 #'         on the tree, and don"t have congeners
 #'

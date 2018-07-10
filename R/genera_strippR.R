@@ -7,7 +7,7 @@
 #'        starting tree
 #' @export
 #'
-genera_strippr <- function(tax_list, tree){
+genera_strippr <- function(tree, tax_list){
 #Check if tree is phylo object
     if (!inherits(tree, "phylo")){
     stop("tree must be of class 'phylo'")

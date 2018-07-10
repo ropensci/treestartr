@@ -1,13 +1,13 @@
 #' Add tips not on existing tree to the tree, if they have congeners
 #'
-#' @param absent_list Vector of taxa in the total dataset that are not on the tree
 #' @param tree Starting tree; object of type phylo
+#' @param absent_list Vector of taxa in the total dataset that are not on the tree
 #' @return tree. Phylo object containing the starting tree,
 #'          and all tips that were added.
 #' @export
 #'
 
-present_tippr <- function(absent_list, tree){
+present_tippr <- function(tree, absent_list){
 #Check tree is of object phylo
   if (!inherits(tree, "phylo")){
     stop("tree must be of class 'phylo'")
