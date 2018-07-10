@@ -10,7 +10,7 @@ make_absentdf(absent_list)
 \item{absent_list}{Vector of taxa in the total dataset that are not on the tree}
 }
 \value{
-dataframe Dataframe objects expressing which tips are in the total set
+absent_df Dataframe objects expressing which tips are in the total set
         but not the tree, and their genera
 }
 \description{

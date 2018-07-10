@@ -10,7 +10,7 @@ make_treedf(tree)
 \item{tree}{Starting tree; object of type phylo}
 }
 \value{
-dataframe Dataframe objects expressing the tips, and their genera
+tree_df Dataframe objects expressing the tips, and their genera
 }
 \description{
 Determine which tips are on the tree, and get their genera.

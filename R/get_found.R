@@ -4,7 +4,7 @@
 #' @param tree Starting tree; object of type phylo
 #' @param absent_list Vector of taxa in the total dataset that are not on the tree
 
-#' @return dataframe Dataframe objects expressing the tips that are not
+#' @return found_df Dataframe objects expressing the tips that are not
 #'         on the tree, if they have congeners on the tree
 #'
 

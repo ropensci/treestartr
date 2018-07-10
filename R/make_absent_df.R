@@ -1,7 +1,7 @@
 #' Determine which tips are not on the tree, and get their genera.
 #'
 #' @param absent_list Vector of taxa in the total dataset that are not on the tree
-#' @return dataframe Dataframe objects expressing which tips are in the total set
+#' @return absent_df Dataframe objects expressing which tips are in the total set
 #'         but not the tree, and their genera
 #'
 

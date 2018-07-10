@@ -13,7 +13,7 @@ get_lost(absent_list, tree)
 \item{tree}{Starting tree; object of type phylo}
 }
 \value{
-dataframe Dataframe objects expressing the tips that are not
+not_found_df Dataframe objects expressing the tips that are not
         on the tree, and don't have congeners
 }
 \description{

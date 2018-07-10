@@ -1,7 +1,7 @@
 #' Determine which tips are on the tree, and get their genera.
 #'
 #' @param tree Starting tree; object of type phylo
-#' @return dataframe Dataframe objects expressing the tips, and their genera
+#' @return tree_df Dataframe objects expressing the tips, and their genera
 #' @import phytools
 #'
 
