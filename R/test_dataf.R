@@ -1,7 +1,6 @@
 #' Test if dataframe has two columns and a non-zero number of rows.
 #'
 #' @param tax_list Dataframe containing a list of taxa in the analysis and their ages.
-#' @import assertthat
 #' @return None
 #' @export
 

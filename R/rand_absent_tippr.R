@@ -2,10 +2,9 @@
 #'
 #' @param absent_list Vector of taxa in the total dataset that are not on the tree
 #' @param tree Starting tree; object of type phylo
+#' @import phytools
 #' @return tree. Phylo object containing the starting tree,
 #'          and all tips that were added.
-#' @import ape
-#' @import phytools
 #' @export
 #'
 

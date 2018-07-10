@@ -1,5 +1,3 @@
-library(testthat)
-library(ape)
 library(phytools)
 
 test_that('Test text_placR(tree, mrca_df)',{

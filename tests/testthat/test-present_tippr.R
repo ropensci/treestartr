@@ -1,5 +1,3 @@
-library(testthat)
-library(ape)
 library(phytools)
 
 test_that('Test present_tippR(absent_list, tree)',{

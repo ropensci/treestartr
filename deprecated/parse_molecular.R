@@ -5,7 +5,7 @@
 #' @export
 
 parse_moleculaR <- function(molDat){
-  mol_ns <- ape::read.nexus.data(molDat)
+  mol_ns <- read.nexus.data(molDat)
   mol_ns <- names(mol_ns)
   return(mol_ns)
 }

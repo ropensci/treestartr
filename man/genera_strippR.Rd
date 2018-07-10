@@ -13,7 +13,7 @@ genera_strippR(tree, tax_list)
 \item{tax_list}{Total set of taxa on tree, as dataframe}
 }
 \value{
-list of taxa that are present in the total set of trees, but not the
+absent list of taxa that are present in the total set of trees, but not the
        starting tree
 }
 \description{

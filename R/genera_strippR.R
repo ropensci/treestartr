@@ -3,7 +3,7 @@
 #'
 #' @param tree Starting phylogeny, of type phylo
 #' @param tax_list Total set of taxa on tree, as dataframe
-#' @return list of taxa that are present in the total set of trees, but not the
+#' @return absent list of taxa that are present in the total set of trees, but not the
 #'        starting tree
 #' @export
 #'

@@ -5,7 +5,7 @@
 #' @export
 
 parse_morphology <- function(morphDat){
-  morph_ns <- ape::read.nexus.data(morphDat)
+  morph_ns <- read.nexus.data(morphDat)
   morph_ns <- names(morph_ns)
   return(morph_ns)
 }

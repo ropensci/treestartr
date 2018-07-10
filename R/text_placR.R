@@ -18,7 +18,7 @@ text_placR <- function(tree, mrca_df){
     loc <- findMRCA(tree, mrca_list)
     x <-  sprintf('Placing tip at node %d', loc)
     print(x)
-    tree <- phytools::bind.tip(tree, tax, where=loc)
+    tree <- bind.tip(tree, tax, where=loc)
   }
   return(tree)
   }

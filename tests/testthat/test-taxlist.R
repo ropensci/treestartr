@@ -1,4 +1,4 @@
-library(testthat)
+library(phytools)
 
 test_that('Test genera_strippR(tree, tax_list)',{
   tree <- read.nexus('testdata/simple.tre')

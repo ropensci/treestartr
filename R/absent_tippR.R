@@ -23,7 +23,7 @@ absent_tippR <- function(absent_list, tree){
                                 from the tree that popped up", full)) )
     num <- as.numeric(unlist(strsplit(num, ",")))
     pos <- 0.4*(tree$edge.length[which(tree$edge[,2]==num)])
-    tree <- phytools::bind.tip(tree,full,where=num)
+    tree <- bind.tip(tree,full,where=num)
   }
   return(tree)
 }

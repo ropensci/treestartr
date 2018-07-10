@@ -2,11 +2,11 @@
 title: "README.Rmd"
 output: html_document
 ---
+[![Build Status](https://travis-ci.org/wrightaprilm/treeStartR.svg?branch=master)](https://travis-ci.org/wrightaprilm/treeStartR)
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-[![Build Status](https://travis-ci.org/wrightaprilm/treeStartR.svg?branch=master)](https://travis-ci.org/wrightaprilm/treeStartR)
 [![Coverage status](https://codecov.io/gh/wrightaprilm/treeStartR/branch/master/graph/badge.svg)](https://codecov.io/github/wrightaprilm/treeStartR?branch=master)
 ## treeStartR
 
