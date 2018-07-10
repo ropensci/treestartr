@@ -2,12 +2,14 @@
 title: "README.Rmd"
 output: html_document
 ---
+![logo](images/logo1.png)
+
 [![Build Status](https://travis-ci.org/wrightaprilm/treeStartR.svg?branch=master)](https://travis-ci.org/wrightaprilm/treeStartR)
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-[![Coverage status](https://codecov.io/gh/wrightaprilm/treeStartR/branch/master/graph/badge.svg)](https://codecov.io/github/wrightaprilm/treeStartR?branch=master)
+
 ## treeStartR
 
 Phylogenetic trees, and particularly time-scaled phylogenetic trees, are increasingly estimated using complex models of evolution. Finding a starting tree with a computable likelihood to perform a Bayesian MCMC can be a challenge, particularly when when estimation involves taxa, large datasets, and missing data.
