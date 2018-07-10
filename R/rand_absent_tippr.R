@@ -8,7 +8,7 @@
 #' @export
 #'
 
-rand_absent_tippR <- function(absent_list, tree){
+rand_absent_tippr <- function(absent_list, tree){
   if(!inherits(tree,"phylo")){
     stop("tree must be of class 'phylo'")
   }
