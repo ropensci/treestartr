@@ -5,7 +5,9 @@
 #' @param tree Starting tree; object of type phylo
 #' @return not_found_df Dataframe objects expressing the tips that are not
 #'         on the tree, and don"t have congeners
-#'
+#' @examples
+#' no_congeners <- get_lost(absent_list, tree)
+#' @export
 
 get_lost <- function(absent_list, tree){
   absent_df <- make_absentdf(absent_list)

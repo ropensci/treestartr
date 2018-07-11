@@ -19,3 +19,6 @@ found_df Dataframe objects expressing the tips that are not
 Determine which tips that are not on the tree, and checks if they have congeners
 on the tree.
 }
+\examples{
+has_congeners <- get_found(absent_list, tree)
+}
