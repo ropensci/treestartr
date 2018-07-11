@@ -1,9 +1,12 @@
-#' Add tips not on existing tree to the tree, if they have congeners
-#'
+#' Add tips to the tree based on taxonomy
+#' @description Add tips not on existing tree to the tree via an MRCA node,
+#' if they have congeners
 #' @param tree Starting tree; object of type phylo
 #' @param absent_list Vector of taxa in the total dataset that are not on the tree
 #' @return tree. Phylo object containing the starting tree,
 #'          and all tips that were added.
+#' @examples
+#' genera_tree <- present_tippr(tree, absent_list)
 #' @export
 #'
 

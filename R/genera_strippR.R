@@ -1,10 +1,11 @@
-#' See which morphological & stratigraphic genera are represented
+#' Check if tip is on tree
+#' @description See which morphological & stratigraphic genera are represented
 #' in the molecular tree
-#'
 #' @param tree Starting phylogeny, of type phylo
 #' @param tax_list Total set of taxa on tree, as dataframe
-#' @return absent list of taxa that are present in the total set of trees, but not the
-#'        starting tree
+#' @return absent list of taxa that are present in the total set of trees, but not the starting tree
+#' @examples
+#' absent_taxa <- genera_strippr(tree, tax_list)
 #' @export
 #'
 genera_strippr <- function(tree, tax_list){

@@ -2,8 +2,7 @@
 % Please edit documentation in R/get_lost.R
 \name{get_lost}
 \alias{get_lost}
-\title{Determine which tips that are not on the tree, puts them in a dataframe if they
-do not have congeners on the tree}
+\title{Determine if a tip is present on a tree}
 \usage{
 get_lost(absent_list, tree)
 }

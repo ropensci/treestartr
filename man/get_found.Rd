@@ -2,8 +2,7 @@
 % Please edit documentation in R/get_found.R
 \name{get_found}
 \alias{get_found}
-\title{Determine which tips that are not on the tree, and checks if they have congeners
-on the tree.}
+\title{Get dataframe of tips that do not have congeners on tree.}
 \usage{
 get_found(absent_list, tree)
 }

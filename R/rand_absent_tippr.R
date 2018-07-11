@@ -1,10 +1,14 @@
-#' Add tips not on existing tree to the tree at random, if they do not have congeners on the tree.
-#'
+#' Random addition of taxa
+#' @description Add tips not on existing tree to the tree at random, if they do
+#' not have congeners on the tree.
 #' @param tree Starting tree; object of type phylo
-#' @param absent_list Vector of taxa in the total dataset that are not on the tree
+#' @param absent_list Vector of taxa in the total dataset that are not on the
+#' tree
 #' @import phytools
 #' @return tree Phylo object containing the starting tree,
 #'          and all tips that were added.
+#' @examples
+#' new_tree <- rand_absent_tippr(tree, absent_list)
 #' @export
 #'
 
