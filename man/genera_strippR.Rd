@@ -2,8 +2,7 @@
 % Please edit documentation in R/genera_strippR.R
 \name{genera_strippr}
 \alias{genera_strippr}
-\title{See which morphological & stratigraphic genera are represented
-in the molecular tree}
+\title{Check if tip is on tree}
 \usage{
 genera_strippr(tree, tax_list)
 }
@@ -13,10 +12,12 @@ genera_strippr(tree, tax_list)
 \item{tax_list}{Total set of taxa on tree, as dataframe}
 }
 \value{
-absent list of taxa that are present in the total set of trees, but not the
-       starting tree
+absent list of taxa that are present in the total set of trees, but not the starting tree
 }
 \description{
 See which morphological & stratigraphic genera are represented
 in the molecular tree
+}
+\examples{
+absent_taxa <- genera_strippr(tree, tax_list)
 }

@@ -2,8 +2,7 @@
 % Please edit documentation in R/dataframe_loadR.R
 \name{dataf_parsr}
 \alias{dataf_parsr}
-\title{Detect file format of taxon list (molecular, morphological, and stratigraphic) and maximum age of fossil, see RevBayes
-total-evidence fossil file for an example of this.}
+\title{Detect file format of taxon file}
 \usage{
 dataf_parsr(dataf)
 }
@@ -16,6 +15,10 @@ the tip is extant, use 0.0 as the age. Can be CSV or TSV.}
 tax_list Dataframe containing the total set of tips on the tree
 }
 \description{
-Detect file format of taxon list (molecular, morphological, and stratigraphic) and maximum age of fossil, see RevBayes
-total-evidence fossil file for an example of this.
+Detect file format of taxon list (molecular, morphological, and
+stratigraphic) and maximum age of fossil, see RevBayes total-evidence fossil
+file for an example of this.
+}
+\examples{
+taxa_df <- dataf_parsr(dataf)
 }

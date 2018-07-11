@@ -2,7 +2,7 @@
 % Please edit documentation in R/absent_tippR.R
 \name{absent_tippr}
 \alias{absent_tippr}
-\title{Add tips not on existing tree to the tree, if thye do not have congeners on the tree}
+\title{Add tips to tree via user input}
 \usage{
 absent_tippr(tree, absent_list)
 }
@@ -12,9 +12,13 @@ absent_tippr(tree, absent_list)
 \item{absent_list}{Vector of taxa in the total dataset that are not on the tree}
 }
 \value{
-tree. Phylo object containing the starting tree,
+tree Phylo object containing the starting tree,
          and all tips that were added.
 }
 \description{
-Add tips not on existing tree to the tree, if thye do not have congeners on the tree
+Add tips not on existing tree to the tree via user input,
+if they do not have congeners on the tree
+}
+\examples{
+new <- absent_tippr(tree, absent_list)
 }

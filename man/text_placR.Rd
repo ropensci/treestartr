@@ -2,22 +2,26 @@
 % Please edit documentation in R/text_placR.R
 \name{text_placr}
 \alias{text_placr}
-\title{Add tips according to csv or tsv file of taxon names and taxa that form the clade
-into which you"d like to insert the tip}
+\title{Add tips to tree via taxon list}
 \usage{
 text_placr(tree, mrca_df)
 }
 \arguments{
 \item{tree}{Starting tree; object of type phylo}
 
-\item{mrca_df}{Dataframe containing a column of the taxa you"d like to place,
-and one column with the clade into which you"d like to place it}
+\item{mrca_df}{Dataframe containing a column of the taxa you'd like to place,
+and one column with the clade into which you'd like to place
+it}
 }
 \value{
-tree. Phylo object containing the starting tree,
+tree Phylo object containing the starting tree,
          and all tips that were added.
 }
 \description{
-Add tips according to csv or tsv file of taxon names and taxa that form the clade
+Add tips according to csv or tsv file of taxon names and taxa
+that form the clade
 into which you"d like to insert the tip
+}
+\examples{
+text_placr(tree, mrca_df)
 }

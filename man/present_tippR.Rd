@@ -2,7 +2,7 @@
 % Please edit documentation in R/present_tippr.R
 \name{present_tippr}
 \alias{present_tippr}
-\title{Add tips not on existing tree to the tree, if they have congeners}
+\title{Add tips to the tree based on taxonomy}
 \usage{
 present_tippr(tree, absent_list)
 }
@@ -16,5 +16,9 @@ tree. Phylo object containing the starting tree,
          and all tips that were added.
 }
 \description{
-Add tips not on existing tree to the tree, if they have congeners
+Add tips not on existing tree to the tree via an MRCA node,
+if they have congeners
+}
+\examples{
+genera_tree <- present_tippr(tree, absent_list)
 }
