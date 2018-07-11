@@ -7,7 +7,7 @@
 #' the tip is extant, use 0.0 as the age. Can be CSV or TSV.
 #' @return tax_list Dataframe containing the total set of tips on the tree
 #' @examples
-#' taxa_df <- dataf_parsr(dataf)
+#' \dontrun{taxa_df <- dataf_parsr(dataf)}
 #' @export
 
 dataf_parsr <- function(dataf) {

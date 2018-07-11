@@ -20,5 +20,5 @@ Add tips not on existing tree to the tree via user input,
 if they do not have congeners on the tree
 }
 \examples{
-new <- absent_tippr(tree, absent_list)
+\dontrun{ new <- absent_tippr(tree, absent_list) }
 }

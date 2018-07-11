@@ -20,9 +20,9 @@ present_tippr <- function(tree, absent_list){
   tree_df <- make_treedf(tree)
 
   for (row in 1:nrow(found_df)) {
-    message("Adding tips with congeners on tree:", full)
     gen <- found_df[row, "A"]
     full <- as.character(found_df[[row, "B"]])
+    message("Adding tips with congeners on tree:", full)
 #Locate MRCA on tree for each set of congeners.
     mrca_list <- list()
     mrca_list <- tree_df$fullnames[tree_df$genera == gen]
@@ -33,8 +33,8 @@ present_tippr <- function(tree, absent_list){
       tree <- bind.tip(tree, full, where = loc)
     }else if (length(mrca_list) <= 1) {
 #If one congener, new tip will subtend parent node of congener.
-      message("Adding tip via parent node ", full)
       loc <- getParent(tree, mrca_list)
+      message("Adding tip via parent node ", loc)
       tree <- bind.tip(tree, full, where = loc)
     }
   }

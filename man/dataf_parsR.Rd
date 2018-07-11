@@ -20,5 +20,5 @@ stratigraphic) and maximum age of fossil, see RevBayes total-evidence fossil
 file for an example of this.
 }
 \examples{
-taxa_df <- dataf_parsr(dataf)
+\dontrun{taxa_df <- dataf_parsr(dataf)}
 }

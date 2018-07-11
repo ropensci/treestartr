@@ -10,11 +10,14 @@ License: MIT + file LICENSE
 Depends:
 	R (>= 3.0.0)
 Imports:
-	phytools (>= 0.6-4)
+	phytools (>= 0.6-4),
+	ape
 Suggests:
     knitr,
     testthat,
-    covr
+    covr,
+    utils
+VignetteBuilder: utils
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1

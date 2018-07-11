@@ -6,7 +6,7 @@
 #' @return tree Phylo object containing the starting tree,
 #'          and all tips that were added.
 #' @examples
-#' new <- absent_tippr(tree, absent_list)
+#' \dontrun{ new <- absent_tippr(tree, absent_list) }
 #' @export
 #'
 
@@ -22,10 +22,11 @@ absent_tippr <- function(tree, absent_list){
     full <- as.character(lost_df[[row, "B"]])
     message("Adding tips:", full)
     plot(tree)
-    nodelabels()
+    ape::nodelabels()
 #Add tips to tree via user input
-    message("Where would you like to put ", full, "?")
-    num <- readline(message("Enter a node number from the tree that popped up"))
+    num <- readline(cat(sprintf("Where would you like to put %s Enter
+                                a node number from the tree that popped up",
+                                full)) )
     num <- as.numeric(unlist(strsplit(num, ",")))
     tree <- bind.tip(tree, full, where = num)
   }
