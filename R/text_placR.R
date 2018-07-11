@@ -16,13 +16,13 @@ text_placr <- function(tree, mrca_df){
   iter <- unique(as.character(mrca_df$taxon))
 #Get taxa to place
   for (tax in iter) {
-    x <- sprintf("Placing taxon via provided input: %s", tax)
+    x <- message("Placing taxon via provided input: ", tax)
     print(x)
 #Find MRCA of povided taxa
     mrca_list <- mrca_df$clade[mrca_df$taxon == tax]
     mrca_list <- as.vector(mrca_list)
     loc <- findMRCA(tree, mrca_list)
-    x <-  sprintf("Placing tip at node %d", loc)
+    x <-  message("Placing tip at node ", loc)
     print(x)
 #Place new tip subtending MRCA of provided taxa
     tree <- bind.tip(tree, tax, where = loc)

@@ -20,14 +20,12 @@ absent_tippr <- function(tree, absent_list){
 #Iterate over lost_df, adding these tips to tree
   for (row in 1:nrow(lost_df)) {
     full <- as.character(lost_df[[row, "B"]])
-    print("Adding tips:")
-    print(full)
+    message("Adding tips:", full)
     plot(tree)
     nodelabels()
 #Add tips to tree via user input
-    num <- readline(cat(sprintf("Where would you like to put %s Enter
-                                a node number from the tree that popped up",
-                                full)) )
+    message("Where would you like to put ", full, "?")
+    num <- readline(message("Enter a node number from the tree that popped up"))
     num <- as.numeric(unlist(strsplit(num, ",")))
     tree <- bind.tip(tree, full, where = num)
   }

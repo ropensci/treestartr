@@ -13,15 +13,15 @@
 dataf_parsr <- function(dataf) {
   fileformat(dataf)
   if (endsWith(dataf, ".tsv") == TRUE) {
-    print(".tsv file ending detected.")
+    message(".tsv file ending detected.")
     df <- read.csv(file = dataf, sep = "\t")
   } else if (endsWith(dataf, ".csv") == TRUE){
-    print(".csv file ending detected.")
+    message(".csv file ending detected.")
     df <- read.csv(file = dataf)
   }
   if (ncol(df) == 2){
   tax_list <- df[c("taxon", "age")]
-  print("File processing complete.")
+  message("File processing complete.")
   } else if (ncol(df) != 2) {
     stop("Dataframes should have two columns, taxon and ages")
   }
