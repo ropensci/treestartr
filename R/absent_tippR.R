@@ -20,15 +20,15 @@ absent_tippr <- function(tree, absent_list){
 #Iterate over lost_df, adding these tips to tree
   for (row in 1:nrow(lost_df)) {
     full <- as.character(lost_df[[row, "B"]])
-    message("Adding tips:", full)
+    message("Adding tips: ", full)
     plot(tree)
     ape::nodelabels()
 #Add tips to tree via user input
-    num <- readline(cat(sprintf("Where would you like to put %s Enter
-                                a node number from the tree that popped up",
+    message("Refer to the tree that popped up")
+    num <- readline(cat(sprintf("Where would you like to put %s ",
                                 full)) )
     num <- as.numeric(unlist(strsplit(num, ",")))
-    tree <- bind.tip(tree, full, where = num)
+    tree <- phytools::bind.tip(tree, full, where = num)
   }
   return(tree)
 }

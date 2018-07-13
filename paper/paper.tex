@@ -1,0 +1,168 @@
+# Introduction
+
+Phylogenetic trees occupy a central role in evolutionary biology, forming the backbone of much taxonomic \citep{Sneath1973} and comparative work \citep{Felsenstein1985a}. 
+The first phylogenetic trees were inferred using morphological data matrices.
+As genetic data became readily and abundantly available, methods development increasingly focused on maximum likelihood and Bayesian methods for estimating phylogeny from these data.
+Evidence that integration of the fossil record with molecular phylogenies improves comparative inference has lead to increased attention paid to methods for working with morphological data.
+Methods for working with combined datasets, sometimes termed "joint" or "total-evidence" methods are becoming increasingly popular, and have been extended to include "stratigraphic tips", tips known from fossil evidence, but which do not have character information.
+These stratigraphic tips are still useful for establishing clade ages on a dated phylogeny, but must be placed via expert analysis, rather than character information.
+
+Phylogenetic trees, under all optimality criteria, estimate a startting tree, an initial tree that is improved throughout the analysis.
+Frequently used criteria for generating the starting tree include random addition of taxa (raxml8, beast2), parsimony (raxml8), and clustering via neighbor-joining or UPGMA (beast2).
+Another approach is drawing a tree from a tree prior (revbayes).
+However, all of these approaches can be challenging in the presence of stratigraphic taxa. 
+Phylogenetic methods assume a common tree, i.e. a representation of the phylogeny on which all taxa in the analysis are present as tips, including stratigraphic taxa.
+Because stratigraphic taxa are placed via taxonomy, and not data, they cannot be added via typical phylogenetic algorithms.
+In practice, they are often added to the tree through the use of clade constraints, and are represented in the phylogenetic matrix as missing data (revbayes).
+No software presently simulates trees consistent with clade constraints, but instead reject starting trees inconsistent with the constraints.
+This is referred to as rejection sampling.
+
+In an analysis assuming a model, an analysis with stratigraphic tips must not only find a starting tree, but one with a computable probability given the model and the data.
+Practically, the addition of stratigraphic tips greatly increases the amount of missing data in an analysis because these taxa do not have character data.
+The net result of this is that a tree consistent with the constraints must be found with a reasonable likelihood in the presence of large amounts of missing data.
+This may be particularly challenging for parameter-rich models, which many models for incorporating stratigraphic taxa are \citep{fbd}.
+
+Most phylogenetic software packages in wide use allow researchers to add a starting tree of their own, sidestepping the challenges of generating one. 
+Commonly, a starting tree may be a tree from a prior study. 
+While, under an appropriately-specified model, any initial conditions of a Bayesian MCMC will lead to convergence, a reasonable starting tree can speed this up.
+Hence, I introduce the package treeStartR to assist in generating reasonable starting trees for combined datasets, including stratigraphic taxa.
+This package includes a number of functions to add tips to a tree through a variety of methodologies, which can then be exported for use with most phylogenetic software.
+In the coming sections, I describe the usage of this package.
+
+# Description
+
+treeStartR is written entirely in the R scientific computing language, and uses functionality from phytools, ape and dplyr.
+The core functionality of treeStartR is to take a total set of taxa, establish which are already on the phylogeny, and add those that are not.
+The taxa that are not on the phylogeny can be added in three principal ways: 
+
+present_tippr - This approach looks at the genus of each taxon not represented on the tree. 
+If there is another member of that genus, or multiple members of that genus, on the tree, they will guide the addition of the taxon.
+If one member of the genus is on the tree, the new taxon will be added subtending the parent node of its congener. 
+If multiple members of the same genus are present, the taxon will be added subtending the most recent common ancestor (MRCA) of its congeners.
+This function is effective for efficiently adding taxa that are closely-related to other taxa on the tree.
+
+rand_absent_tippr - This approach draws a random node from the phylogeny for each taxon not represented on the tree.
+The taxon is then added subtending this random node.
+This function is designed to create starting trees if the relationships of the taxa to be added are truly unknown, or to generate null starting trees for examining convergence efficiency.
+
+absent_tippr - This method offers a user interface.
+In this method, a visualization of the tree with node labels will pop up. 
+The user then decides where they would like the taxon to be added to the tree, and enters the node number they would like it to subtend.
+The tree visualization then updates, as the node labels change as tips are added to the tree. 
+The researcher will specify node numbers until all taxa are added to the tree. 
+This approach is useful for small amounts of taxa to be added to a tree.
+
+text_placr - It would be inconvenient and unweildy to place all taxa on a large tree via user interface. 
+Therefore, the text_placr function allows users to create an input file with the names of the tips to be added, where the tips will be added.
+In this function, the datafile is read in. 
+For each tip, a taxon or list of taxa that represent where the tip should be placed is read in.
+If there is one taxon that represents where the tip should be placed, the tip is added subtending the parent of that taxon.
+If there are multiple, the tip will be added subtending the MRCA of all of them.
+This function has been made available to facilitate taxonomically-guided bulk addition of tips.
+
+## Test Suite
+
+treeStartR has a test suite implemented via testthat. 
+The software is automatically tested at each change using Travis CI. 
+The test passage status and coverage percentage can be viewed on the software's website (https://wrightaprilm.github.io/treeStartR/).
+Examples of the input files can be found in the test suite.
+
+# Example Analyses
+
+The treeStartR package comes with a test dataset, bears.
+These data come from Kraus and Abella, and were previously compiled for use with fossilized birth-death dating by Heath et al.
+A starting tree is provided, and seven taxa are in the total set of tips that are not present on the tree.
+Of these seven tips, two have congeners and can be placed on the tree via the present_tippr function.
+Five do not, and must be placed via one of the other functions. 
+Examples of how to make a complete tree follow. 
+
+For all below analyses, first install and load treeStartR, and load the included dataset.
+```
+install.github("wwrightaprilm/treestartr")
+library(treestartr)
+data(bears)
+```
+
+This dataset contains all the input files needed to add taxa to trees. 
+I will note, in the instructions, where helper functions are used to generate these files for your own data.
+
+## Automatically placing taxa via taxonomy
+
+The present_tippr() function allows researchers to place a tip on the tree by locating other species of the same genus.
+As input, this function takes a phylogenetic tree (a phylo object, which can be read in via ape) and a list of taxa that are not currently represented on the tree.
+This list is provided with the data package included with treestartr, but can be generated through the use of user functions dataf_parsr() and genera_strippr() from a CSV or TSV file containing two columns (taxon and age).
+present_tippr calls two utility functions, make_tree_df() and get_found(), which make a list of genera found on the tree and match the genera of the taxa in the absent list to those genera, respectively.
+If the genus of a taxon in the absent_list has multiple congeners on the tree, present_tippr calls find_MRCA from ape to find the most recent common ancestor of all matching taxa, and places the new tip subtending this node.
+If the genus matches one congener, present_tippr uses the getParent() function from ape to get the parent node.
+The new tip is then added subtending this node.
+For compatability with the pipe function, the return type of this function is a phylo object, and the input tree is the first argument to the function:
+
+```
+new_tree <- present_tippr(tree, absent_list)
+```
+
+The output phylogenetic tree will have all the taxa present on the original starting tree, as well as the tips that could be identified with a genus on the tree.
+In the case of the test data, the initial tree has 15 tips, and the output tree has 17 tips.
+The tips added by this function are Indarctos_punjabiensis and Ursus_abstrusus.
+
+## Manually placing taxa via taxonomy
+
+Tips can also be placed manually. 
+This function plots the input phylogeny, with node labels. 
+The researcher chooses the number of the node they would like the new tip to subtend.
+If called on the included example tree, like so:
+
+```
+new_tree <- absent_tippr(tree, absent_list)
+```
+
+5 tips will be added for a total of 20 tips on the tree.
+The return type of this function is a phylogenetic tree, containing all the tips of the input tree and all of the tips that were added to it.
+
+## Placing taxa via taxonomy datafile
+
+Adding tips manually is not practical if there are many tips to be added.
+In this case, an input CSV file can be provided.
+One is included with the example data, but this file can be created in any spreadsheet editor.
+In the input file format, one column will be the tip to be added.
+The other column is the group to which it should be added.
+If there is only one taxon on the tree that will be used for placement, the taxon to be added will have a single row.
+In this case, the taxon will be added via getParent(). 
+If there are multiple tips, the taxon to be added will be represented in multiple rows.
+Each row will have the same taxon represented, but a different taxon (from the tree) listed in the second column.
+An example is below:
+
+```
+                  taxon               clade
+1 Kretzoiarctos_beatrix Indarctos_arctoides
+2 Kretzoiarctos_beatrix    Indarctos_vireti
+3       Ursus_abstrusus        Ursus_arctos
+4       Ursus_abstrusus      Ursus_spelaeus
+5       Ursus_abstrusus    Ursus_americanus
+```
+
+In this case, tip Kretzoiarctos_beatrix will be added subtending the MRCA of Indarctos_arctoides and Indarctos_vireti.
+Ursus_abstrusus would be added subtending the MRCA of Ursus_arctos, Ursus_spelaeus, and Ursus_americanus. 
+Called on the example data: 
+
+new_tree <- text_placr(tree, mrca_df)
+
+the returned tree will contain 17 tips.
+
+## Automatically placing taxa on the tree at random
+
+The final main function of treeStartR is rand_absent_tippr. 
+It accepts as input a tree and a list of taxa to be added to it:
+```
+new_tree <- rand_absent_tippr(tree, absent_list)
+```
+
+For each tip to be added, a node is selected on the tree at random with the sample() function.
+The tip to be added is then added subtending this node.
+Called on the example tree, the returned new_tree will have 20 tips.
+
+## Citation information
+
+To be added.
+ 
+# Conclusion
