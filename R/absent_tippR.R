@@ -24,10 +24,11 @@ absent_tippr <- function(tree, absent_list){
     plot(tree)
     ape::nodelabels()
 #Add tips to tree via user input
-    message("Refer to the tree that popped up")
-    num <- readline(cat(sprintf("Where would you like to put %s ",
-                                full)) )
-    num <- as.numeric(unlist(strsplit(num, ",")))
+    message("Refer to the tree that popped up. Where would you like to put %s ",                  full)
+#    num <- readline(cat(sprintf("Where would you like to put %s ",
+#                                full)) ) }
+      num <- readLines(file("stdin"), n = 1L)
+         num <- as.numeric(unlist(strsplit(num, ",")))
     tree <- phytools::bind.tip(tree, full, where = num)
   }
   return(tree)
