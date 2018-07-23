@@ -19,7 +19,7 @@ present_tippr <- function(tree, absent_list){
   found_df <- get_found(absent_list, tree)
   tree_df <- make_treedf(tree)
 
-  for (row in 1:nrow(found_df)) {
+  for (row in seq_len(nrow(found_df))) {
     gen <- found_df[row, "A"]
     full <- as.character(found_df[[row, "B"]])
     message("Adding tips with congeners on tree:", full)

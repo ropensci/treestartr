@@ -22,7 +22,7 @@ get_lost <- function(absent_list, tree){
   not_found_gen <- list()
   not_found_full <- list()
 
-    for (row in 1:nrow(absent_df)) {
+    for (row in seq_len(nrow(absent_df))) {
     gen <- absent_df[row, "genera"]
     full <- absent_df[row, "fullnames"]
     not_found_gen[[row]] <- gen[which(!gen %in% tree_df$genera)]

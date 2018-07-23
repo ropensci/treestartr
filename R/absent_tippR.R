@@ -18,7 +18,7 @@ absent_tippr <- function(tree, absent_list){
 #Get list of taxa with no congeners on tree
   lost_df <- get_lost(absent_list, tree)
 #Iterate over lost_df, adding these tips to tree
-  for (row in 1:nrow(lost_df)) {
+  for (row in seq_len(nrow(lost_df))) {
     full <- as.character(lost_df[[row, "B"]])
     message("Adding tips: ", full)
     plot(tree)

@@ -22,7 +22,7 @@ get_found <- function(absent_list, tree){
   found_gen <- list()
   found_full <- list()
 
-  for (row in 1:nrow(absent_df)) {
+  for (row in seq_len(nrow(absent_df))) {
     gen <- absent_df[row, "genera"]
     full <- absent_df[row, "fullnames"]
     found_gen[[row]] <- gen[which(gen %in% tree_df$genera)]
