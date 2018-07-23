@@ -1,15 +1,18 @@
 ---
-title: "README.Rmd"
-output: html_document
-bibliography: bibliography.bib
+Author: "April Wright"
+date: "`r Sys.Date()`"
+output: pdf_document
+vignette: >
+  %\VignetteEngine{knitr::knitr}
+  %\VignetteIndexEntry{treeStartR Usage Examples}
+  %\usepackage[UTF-8]{inputenc}
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-![logo](images/logo1.png)
-[![Build Status](https://travis-ci.org/wrightaprilm/treeStartR.svg?branch=master)](https://travis-ci.org/wrightaprilm/treeStartR)
-[![codecov](https://codecov.io/gh/wrightaprilm/treeStartR/branch/master/graph/badge.svg)](https://codecov.io/gh/wrightaprilm/treeStartR)
+![logo](../images/logo1.png)
+
 
 
 ## treeStartR
@@ -24,11 +27,12 @@ allowing the user to specify the tree. Addition of taxa is usually performed bas
 The purpose of this package is to allow users to efficiently add taxa to a given tree to generate a reasonable starting tree. Functions in this package allow taxa to be added to a tree according to either their taxonomy (if other specimens from the same genus are present) in function present_tippr, at random (rand_absent_tippr), or via other user-specified groupings (text_placr). The package uses functions from 
 phytools [@phytools] and ape [@ape].
 
+
 ## Installation
 
 Install the development version directly from Github
 
-```{r eval=FALSE}
+```{r}
 library(devtools)
 install_github("wrightaprilm/treeStartR")
 ```
@@ -62,7 +66,10 @@ absent_list <- genera_strippr(tree, tax_list)
 
 ## Adding tips with congeners
 
-Finally, we add the tips that are not present to the tree. If there are other representatives of the same genera as an absent taxon (for example, adding an additional "Ursus" species to the example tree), those taxa will be used to place the tip. If there are multiple species of the genera, the new tip will subtend the most recent common ancestor of the tips already on the tree. If there is only one representative, the tip will subtend the parent node of that taxon.
+Finally, we add the tips that are not present to the tree. If there are other representatives of the same genera as an absent taxon (for example, adding an additional "Ursus" species to the example tree), those taxa will be used to place 
+the tip. If there are multiple species of the genera, the new tip will subtend 
+the most recent common ancestor of the tips already on the tree. If there is 
+only one representative, the tip will subtend the parent node of that taxon.
 
 ```{r}
 new_tree <- present_tippr(tree, absent_list)
@@ -72,14 +79,14 @@ new_tree <- present_tippr(tree, absent_list)
 
 We can also add the tips that have no congeners. This function will ask for input. A pop-up will be produced, showing node labels. When the program asks for input, you will tell it what node you would like the tip to subtend:
 
-```{r eval=FALSE}
-new_tree <- absent_tippr(tree, absent_list)
+```{r eval=FALSE, include=FALSE}
+new_tree <- absent_tippR(tree, absent_list)
 ```
 
 ## Adding tips at random
 Or, if there are no congeners, you may choose to add tips at random:
 
-```{r}
+```{r, warning=FALSE}
 new_tree <- rand_absent_tippr(tree, absent_list)
 ```
 
@@ -95,7 +102,6 @@ new_tree <- text_placr(tree, mrca_df)
 
 The final tree can be output using standard functions in ape, such as write.nexus():
 
-```{r}
+```{r, eval=FALSE, include=FALSE}
 write.nexus(new_tree, file = "data/export_example.tre")
 ```
-## References
