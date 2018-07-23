@@ -1,4 +1,5 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+paper/*.texpadtmp
 .travis.yml
 ^codecov\.yml$

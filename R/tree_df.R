@@ -12,7 +12,7 @@ make_treedf <- function(tree){
   tree_df <- data.frame(matrix(ncol = 2, nrow = length(tree$tip.label)))
   x <- c("genera", "fullnames")
   colnames(tree_df) <- x
-  tree_df$genera <- lapply(strsplit(tree$tip.label, "_"), `[`, 1)
+  tree_df$genera <- sapply(strsplit(tree$tip.label, "_"), `[`, 1)
   tree_df$fullnames <- tree$tip.label
   return(tree_df)
 }
