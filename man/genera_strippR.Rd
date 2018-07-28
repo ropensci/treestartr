@@ -19,5 +19,5 @@ See which morphological & stratigraphic genera are represented
 in the molecular tree
 }
 \examples{
-absent_taxa <- genera_strippr(tree, tax_list)
+absent_taxa <- genera_strippr(tree, bears)
 }

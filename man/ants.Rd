@@ -7,7 +7,7 @@
 \format{A collection of objects representing function inputs:
 \describe{
     \item{tax_list}{a two-column dataset of taxon names and ages}
-    \item{mrca_df a two-column dataframe of taxa to be placed, and a set of taxa that indicate the MRCA which they will subtend}
+    \item{mrca_df}{a two-column dataframe of taxa to be placed, and a set of taxa that indicate the MRCA which they will subtend}
     \item{tree}{A phylogenetic tree to which tips will be added}
 }}
 \usage{

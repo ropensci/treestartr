@@ -5,7 +5,7 @@
 #' @param tax_list Total set of taxa on tree, as dataframe
 #' @return absent list of taxa that are present in the total set of trees, but not the starting tree
 #' @examples
-#' absent_taxa <- genera_strippr(tree, tax_list)
+#' absent_taxa <- genera_strippr(tree, bears)
 #' @export
 #'
 genera_strippr <- function(tree, tax_list){
