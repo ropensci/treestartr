@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Function reference • treestartr</title>
+<title>bears — bears • treestartr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,7 +30,10 @@
 
 
 
-<meta property="og:title" content="Function reference" />
+<meta property="og:title" content="bears — bears" />
+
+<meta property="og:description" content="A dataset containing 18 taxa and 62 characters for bears" />
+<meta name="twitter:card" content="summary" />
 
 
 
@@ -46,7 +49,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -99,114 +102,45 @@
       </header>
 
 <div class="row">
-  <div class="contents col-md-9">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Reference</h1>
+    <h1>bears</h1>
+    
+    <div class="hidden name"><code>bears.Rd</code></div>
     </div>
 
-    <table class="ref-index">
+    <div class="ref-description">
+    
+    <p>A dataset containing 18 taxa and 62 characters for bears</p>
+    
+    </div>
 
-    <colgroup>
-      
-      <col class="alias" />
-      <col class="title" />
-    </colgroup>
+    <pre class="usage"><span class='fu'>data</span>(<span class='no'>bears</span>)</pre>
+        
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
-          <p class="section-desc"></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="absent_tippr.html">absent_tippr()</a></code> </p>
-        </td>
-        <td><p>Add tips to tree via user input</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ants.html">ants</a></code> </p>
-        </td>
-        <td><p>ants</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="bears.html">bears</a></code> </p>
-        </td>
-        <td><p>bears</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dataf_parsr.html">dataf_parsr()</a></code> </p>
-        </td>
-        <td><p>Detect file format of taxon file</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="fileformat.html">fileformat()</a></code> </p>
-        </td>
-        <td><p>Utility function to check if file is a csv or tsv.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="genera_strippr.html">genera_strippr()</a></code> </p>
-        </td>
-        <td><p>Check if tip is on tree</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_found.html">get_found()</a></code> </p>
-        </td>
-        <td><p>Get dataframe of tips that do not have congeners on tree.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_lost.html">get_lost()</a></code> </p>
-        </td>
-        <td><p>Determine if a tip is present on a tree</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="make_absentdf.html">make_absentdf()</a></code> </p>
-        </td>
-        <td><p>Determine which tips are not on the tree, and get their genera.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="make_treedf.html">make_treedf()</a></code> </p>
-        </td>
-        <td><p>Determine which tips are on the tree, and get their genera.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="present_tippr.html">present_tippr()</a></code> </p>
-        </td>
-        <td><p>Add tips to the tree based on taxonomy</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="rand_absent_tippr.html">rand_absent_tippr()</a></code> </p>
-        </td>
-        <td><p>Random addition of taxa</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="text_placr.html">text_placr()</a></code> </p>
-        </td>
-        <td><p>Add tips to tree via taxon list</p></td>
-      </tr>
-    </tbody>
-    </table>
+    <p>A collection of objects representing function inputs:</p><dl class='dl-horizontal'>
+    <dt>tax_list</dt><dd><p>a two-column dataset of taxon names and ages</p></dd>
+    <dt>absent_list</dt><dd><p>A list of taxa in the total data set, but are not on the tree</p></dd>
+    <dt>mrca_df</dt><dd><p>a two-column dataframe of taxa to be placed, and a set of taxa that indicate the MRCA which they will subtend</p></dd>
+    <dt>tree</dt><dd><p>A phylogenetic tree to which tips will be added</p></dd>
+</dl>
+    
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
+
+    <p><a href='https://github.com/revbayes/revbayes_tutorial/tree/master/RB_TotalEvidenceDating_FBD_Tutorial/data'>https://github.com/revbayes/revbayes_tutorial/tree/master/RB_TotalEvidenceDating_FBD_Tutorial/data</a></p>
+    
+
   </div>
-
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-all-functions">All functions</a></li>
-    </ul>
+      
+      <li><a href="#format">Format</a></li>
+
+      <li><a href="#source">Source</a></li>
+          </ul>
+
   </div>
 </div>
 

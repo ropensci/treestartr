@@ -77,6 +77,18 @@ if they have congeners" />
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/vignette.html">UNKNOWN TITLE</a>
+    </li>
+  </ul>
+</li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
@@ -127,9 +139,7 @@ if they have congeners</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>genera_tree</span> <span class='kw'>&lt;-</span> <span class='fu'>present_tippr</span>(<span class='no'>tree</span>, <span class='no'>absent_list</span>)</div><div class='output co'>#&gt; [1] "Adding tips with congeners on tree:"
-#&gt; [1] "Indarctos_punjabiensis"</div><div class='output co'>#&gt; <span class='warning'>Warning: one tree has no branch lengths, they have been ignored</span></div><div class='output co'>#&gt; [1] "Adding tips with congeners on tree:"
-#&gt; [1] "Ursus_abstrusus"</div></pre>
+    <pre class="examples"><div class='input'><span class='no'>genera_tree</span> <span class='kw'>&lt;-</span> <span class='fu'>present_tippr</span>(<span class='no'>tree</span>, <span class='no'>absent_list</span>)</div><div class='output co'>#&gt; <span class='message'>Adding tips with congeners on tree:Indarctos_punjabiensis</span></div><div class='output co'>#&gt; <span class='message'>Adding tip via MRCA at 25</span></div><div class='output co'>#&gt; <span class='warning'>Warning: one tree has no branch lengths, they have been ignored</span></div><div class='output co'>#&gt; <span class='message'>Adding tips with congeners on tree:Ursus_abstrusus</span></div><div class='output co'>#&gt; <span class='message'>Adding tip via MRCA at 30</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

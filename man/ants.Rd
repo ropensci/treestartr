@@ -4,15 +4,14 @@
 \name{ants}
 \alias{ants}
 \title{ants}
-\format{An object of class \code{data.frame} with 757 rows and 2 columns.}
+\format{A collection of objects representing function inputs:
+\describe{
+    \item{tax_list}{a two-column dataset of taxon names and ages}
+    \item{mrca_df a two-column dataframe of taxa to be placed, and a set of taxa that indicate the MRCA which they will subtend}
+    \item{tree}{A phylogenetic tree to which tips will be added}
+}}
 \usage{
 data(ants)
-\describe{
-\item  tax_list a two-column dataset of taxon names and ages
-\item  mrca_df a two-column dataframe of taxa to be placed, and a set of taxa that indicate the MRCA
-which they will subtend
-\item  tree A phylogenetic tree to which tips will be added
-}
 }
 \description{
 A dataset containing a phlogeny and taxonomy info for Formicidae

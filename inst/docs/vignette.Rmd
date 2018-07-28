@@ -17,11 +17,16 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## treeStartR
 
-Phylogenetic trees, and particularly time-scaled phylogenetic trees, are increasingly estimated using complex models of evolution. Finding a starting tree with a computable likelihood to perform a Bayesian MCMC can be a challenge, particularly when when estimation involves taxa, large datasets, many parameters, and missing data.
+Phylogenetic trees, and particularly time-scaled phylogenetic trees, are 
+increasingly estimated using parameter-rich models of evolution [@catmodel; @wright2016] and models incorporating macroevoloutionary processes [@fbd]. Finding a starting tree with a computable likelihood to perform a Bayesian MCMC under these complex models can be a challenge, particularly when when estimation involves many
+taxa, large datasets, and missing data.
 
-The purpose of this package is to allow users to efficiently add taxa to a given tree to generate a reasonable starting tree. While adding tips to a tree may be trivial if all tips have the same datatype (i.e., nucleotide sequence data), this can be more challenging for mixed datatype analyses. Additionally, taxa for which only stratiraphic data are available cannot have phylogenetic placements estimated, and must be placed via expert knowledge. 
+Different phylogenetic estimation packages allow users to find starting trees in different ways, such as estimating a tree under parsimony (@raxml8) or neighbor-joining [@beast2], randomly adding taxa to the tree [@beast2; @raxml8], or 
+allowing the user to specify the tree. Addition of taxa is usually performed based on data - that is, using an algorithm (such as parsimony or neighbor-joining) to add the tips to the tree. However, in analyses of the fossil record, specimens may be included for which there are no molecular or morphological characters available, but the taxonomy of the specimen is known via expert opinion. This is the case with many specimens harvested via repositories such as the Paleobiology Database. 
 
-This package allows users to input a known phylogeny, and add tips to the tree. Tips can either be added via a pop-up prompt, in which users specify the exact node which the tip will subtend, or at random, or by providing a taxon set with which the tip should form a group.
+The purpose of this package is to allow users to efficiently add taxa to a given tree to generate a reasonable starting tree. Functions in this package allow taxa to be added to a tree according to either their taxonomy (if other specimens from the same genus are present) in function present_tippr, at random (rand_absent_tippr), or via other user-specified groupings (text_placr). The package uses functions from 
+phytools [@phytools] and ape [@ape].
+
 
 ## Installation
 
