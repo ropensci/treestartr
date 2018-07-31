@@ -48,7 +48,7 @@ library(treestartr)
 data(bears)
 ```
 
-First, we need to load a list of the total set of taxa present in the tree. The "total set" refers to any taxa that will be included in your analysis. This can be either a CSV or a TSV file. A sample list, bears, has been provided as part of the bears data object, but you can also generate one using the function dataf_parser. 
+First, we need to load a list of the total set of taxa present in the tree. The "total set" refers to any taxa that will be included in your analysis. This can be either a CSV or a TSV file. A sample list, bears, has been provided as part of the bears data object, but you can also generate one using the function dataf_parser. Note that if you have higher order taxa, for example, if you are placing a fossil that you have identified to family level, but not species level, these should be included as "family_spp." treeStartR relies on the underscore to separate between the higher order and lower order taxa. Use consistent formatting between the tree and taxon list - i.e, do not call a taxon "Ge_spp" on the tree and "Genus_spp" in the taxon list.
 
 ```{r eval=FALSE}
 tax_list <- dataf_parsr("inst/extdata/bears_taxa.tsv")

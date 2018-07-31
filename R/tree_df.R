@@ -12,6 +12,15 @@ make_treedf <- function(tree){
   tree_df <- data.frame(matrix(ncol = 2, nrow = length(tree$tip.label)))
   x <- c("genera", "fullnames")
   colnames(tree_df) <- x
+  for (tip in tree$tip.label) {
+    if (grepl("_", tip) == TRUE) {
+      message("Tree tip names formatted correctly")
+    }
+   else {
+    message("Tree tips must be formmatted in genus_species format. If this is a higher order taxon with no species name, please format as taxon_sp")
+    stop
+   }
+  }
   tree_df$genera <- sapply(strsplit(tree$tip.label, "_"), `[`, 1)
   tree_df$fullnames <- tree$tip.label
   return(tree_df)

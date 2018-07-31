@@ -25,5 +25,6 @@ dataf_parsr <- function(dataf) {
   } else if (ncol(df) != 2) {
     stop("Dataframes should have two columns, taxon and ages")
   }
+  taxon_testr(tax_list)
   return(tax_list)
 }
