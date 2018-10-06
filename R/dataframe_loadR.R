@@ -20,6 +20,8 @@ dataf_parsr <- function(dataf) {
     df <- read.csv(file = dataf)
   }
   if (ncol(df) == 2){
+    names(df ) <- c("taxon", "age")
+
   tax_list <- df[c("taxon", "age")]
   message("File processing complete.")
   } else if (ncol(df) != 2) {

@@ -11,7 +11,7 @@ make_absentdf <- function(absent_list){
   absent_df <- data.frame(matrix(ncol = 2, nrow = length(absent_list)))
   x <- c("genera", "fullnames")
   colnames(absent_df) <- x
-  absent_df$genera <- sapply(strsplit(absent_list, "_"), `[`, 1)
+  absent_df$genera <- lapply(strsplit(absent_list, "_"), `[`, 1)
   absent_df$fullnames <- absent_list
   return(absent_df)
 }
