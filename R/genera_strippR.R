@@ -16,6 +16,5 @@ genera_strippr <- function(tree, tax_list){
 #Get taxa which are not on tree
   total_set <- unname(unlist(lapply(tax_list["taxon"], as.character)))
   (absent <- unlist(total_set[which(!total_set %in% tree$tip.label)]))
-  print(absent)
   return(absent)
 }

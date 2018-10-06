@@ -3,6 +3,9 @@
 #' if they do not have congeners on the tree
 #' @param tree Starting tree; object of type phylo
 #' @param absent_list Vector of taxa in the total dataset that are not on the tree
+#' @param echo_subtrees Boolean; Print newick subtree with missing taxa added to screen
+#' @param echo_revbayes Boolean; Print newick subtree with missing taxa added to screen, formatted for RevBayes fossilized birth-death analysis
+#' Default FALSE.
 #' @return tree Phylo object containing the starting tree,
 #'          and all tips that were added.
 #' @examples
@@ -10,26 +13,44 @@
 #' @export
 #'
 
-absent_tippr <- function(tree, absent_list){
+absent_tippr <- function(tree, absent_list, echo_subtrees = NULL, echo_revbayes = NULL){
 #Ensure our tree is a phylo object.
     if (!inherits(tree, "phylo")){
     stop("tree must be of class 'phylo'")
     }
+  if (is.null(echo_subtrees)){
+  } else{
+    message("Echoing Subtrees to Screen")
+  }
+  if (is.null(echo_revbayes)){
+  } else{
+    message("Echoing RevBayes-formatted Subtrees to Screen")
+  }
 #Get list of taxa with no congeners on tree
   lost_df <- get_lost(absent_list, tree)
 #Iterate over lost_df, adding these tips to tree
   for (row in seq_len(nrow(lost_df))) {
-    full <- as.character(lost_df[[row, "B"]])
-    message("Adding tips: ", full)
+    full <- as.character(lost_df[[row, "full_name"]])
     plot(tree)
     ape::nodelabels()
 #Add tips to tree via user input
-    message("Refer to the tree that popped up to place taxon ", full)
- #   num <- readline(cat(sprintf("Where would you like to put %s ",
-  #                              full)) ) }
-     num <- readline(" Where would you like to place the tip?")
-         num <- as.numeric(unlist(strsplit(num, ",")))
-    tree <- phytools::bind.tip(tree, full, where = num)
+    cat("Refer to the tree that popped up to place taxon ", full, '\n')
+    num <- readline("At which node would you like to place the tip? Enter a number.")
+    num <- as.numeric(unlist(strsplit(num, ",")))
+    tree <- suppressWarnings(phytools::bind.tip(tree, full, where = num))
+    if (!is.null(echo_revbayes)){
+      parent <- getParent(tree, num)
+      sub_list <- ape::extract.clade(tree, parent)
+      quote_vec <-paste0('"', c(sub_list$tip.label, full), '"')
+      q_vec <-paste0(quote_vec[-length(quote_vec)], ',')
+      q_final <- append(q_vec, tail(quote_vec, n=1))
+      cat("clade(", q_final, ")", '\n')
+    }
+    if (!is.null(echo_subtrees)){
+      parent <- getParent(tree, num)
+      sub_list <- ape::multi2di(ape::extract.clade(tree, parent))
+      cat("Subtree:", ape::write.tree(sub_list), '\n')
+    }
   }
   return(tree)
 }

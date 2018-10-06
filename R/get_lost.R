@@ -30,7 +30,7 @@ get_lost <- function(absent_list, tree){
   }
   not_found_gen <- not_found_gen[lapply(not_found_gen, length) > 0]
   not_found_full <- not_found_full[lapply(not_found_full, length) > 0]
-  not_found_df <- do.call(rbind, Map(data.frame, A = not_found_gen,
-                                     B = not_found_full))
+  not_found_df <- do.call(rbind.data.frame, Map('c', not_found_full, not_found_gen))
+  names(not_found_df ) <- c("full_name", "genera")
   return(not_found_df)
 }
