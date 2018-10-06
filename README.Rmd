@@ -44,7 +44,7 @@ data(bears)
 
 First, we need to load a list of the total set of taxa present in the tree. The "total set" refers to any taxa that will be included in your analysis. This can be either a CSV or a TSV file. A sample list, bears, has been provided as part of the bears data object, but you can also generate one using the function dataf_parser. Note that if you have higher order taxa, for example, if you are placing a fossil that you have identified to family level, but not species level, these should be included as "family_spp." treeStartR relies on the underscore to separate between the higher order and lower order taxa. Use consistent formatting between the tree and taxon list - i.e, do not call a taxon "Ge_spp" on the tree and "Genus_spp" in the taxon list.
 
-```{r eval=FALSE}
+```{r}
 tax_list <- dataf_parsr("inst/extdata/bears_taxa.tsv")
 ```
 
@@ -76,7 +76,6 @@ Or, if there are no congeners, you may choose to add tips at random:
 
 ```{r warning=FALSE}
 new_tree <- rand_absent_tippr(tree, absent_list)
-plot(new_tree)
 ```
 
 ## Adding tips via CSV
@@ -93,7 +92,7 @@ plot(new_tree)
 By default, treeStartR outputs trees with polytomies. This is because the placement of tips is not being estimated from data, but rather placed arbitrarily. RevBayes and BEAST2 read non-bifurcating trees. If you are working with analytical software that does not, you may want to resolve polytomies before export, such as with ape's `multi2di` [function](https://www.rdocumentation.org/packages/ape/versions/5.1/topics/multi2di):
 
 ```{r}
-multi2di(new_tree)
+ape::multi2di(new_tree)
 ```
 
 ## Outputting results
@@ -101,6 +100,13 @@ multi2di(new_tree)
 The final tree can be output using standard functions in ape, such as the  `write.nexus()` [function](https://www.rdocumentation.org/packages/ape/versions/5.2/topics/write.tree):
 
 ```{r}
-write.nexus(new_tree, file = "data/export_example.tre")
+ape::write.nexus(new_tree, file = "data/export_example.tre")
 ```
+
+## Flowchart
+
+Here is the flowchart of the functions in `treeStartR`, and when to use them.
+
+![](images/flowchart/flowchart.001.png)
+
 ## References

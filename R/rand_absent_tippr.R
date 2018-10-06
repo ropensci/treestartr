@@ -45,7 +45,7 @@ rand_absent_tippr <- function(tree, absent_list, echo_subtrees = NULL, echo_revb
     }
     if (!is.null(echo_subtrees)){
       parent <- getParent(tree, num)
-      sub_list <- ape::multi2di(ape::extract.clade(tree, parent))
+      sub_list <- ape::extract.clade(tree, parent)
       cat("Subtree:", ape::write.tree(sub_list), '\n')
     }
   }
