@@ -4,7 +4,7 @@
 #' @return None
 #'
 taxon_testr <- function(tax_list) {
-    if (all(grepl("apple", tax_list$taxon))) {
+    if (all(grepl("_", tax_list$taxon))) {
     }
     else {
       warning("Taxon list tips must be formmatted in genus_species format. If
