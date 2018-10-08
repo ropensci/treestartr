@@ -7,7 +7,6 @@
 #' @examples
 #'  mrca_list <- c("Ursus_arctos", "Ursus_spelaeus", "Ursus_americanus")
 #' clade_constraint <- echo_rb(tree, mrca_list, "Ursus_abstrusus")
-#' @importFrom("tail")
 #' @export
 #'
 echo_rb <- function(tree, mrca_list, tip){

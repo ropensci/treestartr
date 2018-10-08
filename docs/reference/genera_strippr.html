@@ -32,8 +32,8 @@
 
 <meta property="og:title" content="Check if tip is on tree — genera_strippr" />
 
-<meta property="og:description" content="See which morphological &amp;amp; stratigraphic genera are represented
-in the molecular tree" />
+<meta property="og:description" content="Test which taxa in the total set of taxa are present on the
+tree, and which need to be added." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -85,7 +85,7 @@ in the molecular tree" />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/vignette.html">UNKNOWN TITLE</a>
+      <a href="../articles/vignette.html">README.Rmd</a>
     </li>
   </ul>
 </li>
@@ -112,8 +112,8 @@ in the molecular tree" />
 
     <div class="ref-description">
     
-    <p>See which morphological &amp; stratigraphic genera are represented
-in the molecular tree</p>
+    <p>Test which taxa in the total set of taxa are present on the
+tree, and which need to be added.</p>
     
     </div>
 
@@ -134,14 +134,11 @@ in the molecular tree</p>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>absent list of taxa that are present in the total set of trees, but not the starting tree</p>
+    <p>absent_list of taxa that are present in the total set of trees, but not the starting tree</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>absent_taxa</span> <span class='kw'>&lt;-</span> <span class='fu'>genera_strippr</span>(<span class='no'>tree</span>, <span class='no'>bears</span>)</div><div class='output co'>#&gt; [1] "Ailurarctos_lufengensis" "Indarctos_punjabiensis" 
-#&gt; [3] "Kretzoiarctos_beatrix"   "Parictis_montanus"      
-#&gt; [5] "Ursavus_brevirhinus"     "Ursavus_primaevus"      
-#&gt; [7] "Ursus_abstrusus"        </div></pre>
+    <pre class="examples"><div class='input'><span class='no'>absent_taxa</span> <span class='kw'>&lt;-</span> <span class='fu'>genera_strippr</span>(<span class='no'>tree</span>, <span class='kw'>tax_list</span> <span class='kw'>=</span> <span class='no'>tax_list</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

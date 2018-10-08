@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Add tips to tree via user input — absent_tippr • treestartr</title>
+<title>treestartr: A package for generating reasonable starting trees for phylogenetic analysis. — treestartr • treestartr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,11 +30,9 @@
 
 
 
-<meta property="og:title" content="Add tips to tree via user input — absent_tippr" />
+<meta property="og:title" content="treestartr: A package for generating reasonable starting trees for phylogenetic analysis. — treestartr" />
 
-<meta property="og:description" content="Add tips not on existing tree to the tree via user input,
-if they do not have congeners on the tree. This function will generate a
- tree, with nodes numbered. For each tip to be added, the user will be asked #'  to enter the number of the node they would like the tip to subtend." />
+<meta property="og:description" content="treestartr provides multiple ways to add tips to a starting tree" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -106,62 +104,31 @@ if they do not have congeners on the tree. This function will generate a
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Add tips to tree via user input</h1>
+    <h1>treestartr: A package for generating reasonable starting trees for phylogenetic analysis.</h1>
     
-    <div class="hidden name"><code>absent_tippr.Rd</code></div>
+    <div class="hidden name"><code>treestartr.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Add tips not on existing tree to the tree via user input,
-if they do not have congeners on the tree. This function will generate a
- tree, with nodes numbered. For each tip to be added, the user will be asked #'  to enter the number of the node they would like the tip to subtend.</p>
+    <p>treestartr provides multiple ways to add tips to a starting tree</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>absent_tippr</span>(<span class='no'>tree</span>, <span class='no'>absent_list</span>, <span class='kw'>echo_subtrees</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>echo_revbayes</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>tree</th>
-      <td><p>Starting tree; object of type phylo</p></td>
-    </tr>
-    <tr>
-      <th>absent_list</th>
-      <td><p>Vector of taxa in the total dataset that are not on the tree</p></td>
-    </tr>
-    <tr>
-      <th>echo_subtrees</th>
-      <td><p>Boolean; Print newick subtree with missing taxa added to screen. Default FALSE.</p></td>
-    </tr>
-    <tr>
-      <th>echo_revbayes</th>
-      <td><p>Boolean; Print clade constraints with missing taxa added to screen, formatted for RevBayes fossilized birth-death analysis. Default FALSE.</p></td>
-    </tr>
-    </table>
-    
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+        
+    <h2 class="hasAnchor" id="treestartr-functions"><a class="anchor" href="#treestartr-functions"></a>treestartr functions</h2>
 
-    <p>tree Phylo object containing the starting tree,
-         and all tips that were added.</p>
+    
+    <p>absent_tippr, echo_rb, echo_subtree, present_tippr, rand_absent_tippr, text_placr</p>
     
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
- <span class='no'>new</span> <span class='kw'>&lt;-</span> <span class='fu'>absent_tippr</span>(<span class='no'>tree</span>, <span class='no'>absent_list</span>)
-<span class='co'># }</span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#value">Value</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+      <li><a href="#treestartr-functions">treestartr functions</a></li>
+          </ul>
 
   </div>
 </div>

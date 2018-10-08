@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Add tips to tree via user input — absent_tippr • treestartr</title>
+<title>Print subtrees with tips added. — echo_subtree • treestartr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,11 +30,9 @@
 
 
 
-<meta property="og:title" content="Add tips to tree via user input — absent_tippr" />
+<meta property="og:title" content="Print subtrees with tips added. — echo_subtree" />
 
-<meta property="og:description" content="Add tips not on existing tree to the tree via user input,
-if they do not have congeners on the tree. This function will generate a
- tree, with nodes numbered. For each tip to be added, the user will be asked #'  to enter the number of the node they would like the tip to subtend." />
+<meta property="og:description" content="Once a tip has been added to the tree, print the newick-formatted subtree to which the tip was added." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -106,52 +104,44 @@ if they do not have congeners on the tree. This function will generate a
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Add tips to tree via user input</h1>
+    <h1>Print subtrees with tips added.</h1>
     
-    <div class="hidden name"><code>absent_tippr.Rd</code></div>
+    <div class="hidden name"><code>echo_subtree.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Add tips not on existing tree to the tree via user input,
-if they do not have congeners on the tree. This function will generate a
- tree, with nodes numbered. For each tip to be added, the user will be asked #'  to enter the number of the node they would like the tip to subtend.</p>
+    <p>Once a tip has been added to the tree, print the newick-formatted subtree to which the tip was added.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>absent_tippr</span>(<span class='no'>tree</span>, <span class='no'>absent_list</span>, <span class='kw'>echo_subtrees</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>echo_revbayes</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>echo_subtree</span>(<span class='no'>tree</span>, <span class='no'>mrca_list</span>, <span class='no'>tip</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>tree</th>
-      <td><p>Starting tree; object of type phylo</p></td>
+      <td><p>Tree to which the tip will be added; object of type phylo</p></td>
     </tr>
     <tr>
-      <th>absent_list</th>
-      <td><p>Vector of taxa in the total dataset that are not on the tree</p></td>
+      <th>mrca_list</th>
+      <td><p>Vector of taxa. The added tip will subtend the MRCA of these taxa.</p></td>
     </tr>
     <tr>
-      <th>echo_subtrees</th>
-      <td><p>Boolean; Print newick subtree with missing taxa added to screen. Default FALSE.</p></td>
-    </tr>
-    <tr>
-      <th>echo_revbayes</th>
-      <td><p>Boolean; Print clade constraints with missing taxa added to screen, formatted for RevBayes fossilized birth-death analysis. Default FALSE.</p></td>
+      <th>tip</th>
+      <td><p>Taxon which will be added to the tree.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>tree Phylo object containing the starting tree,
-         and all tips that were added.</p>
+    <p>tree subtree to which tip was added</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
- <span class='no'>new</span> <span class='kw'>&lt;-</span> <span class='fu'>absent_tippr</span>(<span class='no'>tree</span>, <span class='no'>absent_list</span>)
-<span class='co'># }</span></pre>
+    <pre class="examples"><div class='input'><span class='no'>mrca_list</span> <span class='kw'>&lt;-</span> <span class='fu'>c</span>(<span class='st'>"Ursus_arctos"</span>, <span class='st'>"Ursus_spelaeus"</span>, <span class='st'>"Ursus_americanus"</span>)
+<span class='no'>tree</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='text_placr.html'>text_placr</a></span>(<span class='no'>tree</span>, <span class='no'>mrca_df</span>)</div><div class='output co'>#&gt; <span class='message'>Placing tip Kretzoiarctos_beatrix</span></div><div class='output co'>#&gt; <span class='message'>via relatives Indarctos_arctoidesIndarctos_vireti</span></div><div class='output co'>#&gt; <span class='message'> at node 25</span></div><div class='output co'>#&gt; <span class='message'>Placing tip Ursus_abstrusus</span></div><div class='output co'>#&gt; <span class='message'>via relatives Ursus_arctosUrsus_spelaeusUrsus_americanus</span></div><div class='output co'>#&gt; <span class='message'> at node 30</span></div><div class='input'><span class='no'>echo_sub</span> <span class='kw'>&lt;-</span> <span class='fu'>echo_subtree</span>(<span class='no'>tree</span>, <span class='no'>mrca_list</span>, <span class='st'>"Ursus_abstrusus"</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

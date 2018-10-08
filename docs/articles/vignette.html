@@ -5,11 +5,11 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> • treestartr</title>
+<title>README.Rmd • treestartr</title>
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="">
+<script src="../pkgdown.js"></script><meta property="og:title" content="README.Rmd">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
@@ -52,7 +52,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/vignette.html">UNKNOWN TITLE</a>
+      <a href="../articles/vignette.html">README.Rmd</a>
     </li>
   </ul>
 </li>
@@ -69,9 +69,8 @@
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1></h1>
+      <h1>README.Rmd</h1>
             
-            <h4 class="date">2018-07-27</h4>
       
       
       <div class="hidden name"><code>vignette.Rmd</code></div>
@@ -80,15 +79,14 @@
 
     
     
-<div class="figure">
-<img src="../images/logo1.png" alt="logo"><p class="caption">logo</p>
-</div>
+<p><img src="../images/logo1.png" alt="logo"><a href="https://travis-ci.org/wrightaprilm/treeStartR"><img src="https://travis-ci.org/wrightaprilm/treeStartR.svg?branch=master" alt="Build Status"></a> <a href="https://codecov.io/gh/wrightaprilm/treeStartR"><img src="https://codecov.io/gh/wrightaprilm/treeStartR/branch/master/graph/badge.svg" alt="codecov"></a></p>
 <div id="treestartr" class="section level2">
 <h2 class="hasAnchor">
 <a href="#treestartr" class="anchor"></a>treeStartR</h2>
-<p>Phylogenetic trees, and particularly time-scaled phylogenetic trees, are increasingly estimated using parameter-rich models of evolution <span class="citation">[@catmodel; @wright2016]</span> and models incorporating macroevoloutionary processes <span class="citation">[@fbd]</span>. Finding a starting tree with a computable likelihood to perform a Bayesian MCMC under these complex models can be a challenge, particularly when when estimation involves many taxa, large datasets, and missing data.</p>
-<p>Different phylogenetic estimation packages allow users to find starting trees in different ways, such as estimating a tree under parsimony (<span class="citation">@raxml8</span>) or neighbor-joining <span class="citation">[@beast2]</span>, randomly adding taxa to the tree <span class="citation">[@beast2; @raxml8]</span>, or allowing the user to specify the tree. Addition of taxa is usually performed based on data - that is, using an algorithm (such as parsimony or neighbor-joining) to add the tips to the tree. However, in analyses of the fossil record, specimens may be included for which there are no molecular or morphological characters available, but the taxonomy of the specimen is known via expert opinion. This is the case with many specimens harvested via repositories such as the Paleobiology Database.</p>
-<p>The purpose of this package is to allow users to efficiently add taxa to a given tree to generate a reasonable starting tree. Functions in this package allow taxa to be added to a tree according to either their taxonomy (if other specimens from the same genus are present) in function present_tippr, at random (rand_absent_tippr), or via other user-specified groupings (text_placr). The package uses functions from phytools <span class="citation">[@phytools]</span> and ape <span class="citation">[@ape]</span>.</p>
+<p>treeStartR is an R package for automated generation of starting trees for total-evidence phylogenetic analyses.</p>
+<p>Phylogenetic trees, and particularly time-scaled phylogenetic trees, are increasingly estimated using parameter-rich models of evolution <span class="citation">(Lartillot, Lepage, and Blanquart 2009; Wright, Lloyd, and Hillis 2016)</span> and models incorporating macroevoloutionary processes <span class="citation">(Heath, Huelsenbeck, and Stadler 2014)</span>. Finding a starting tree with a computable likelihood to perform a Bayesian MCMC under these complex models can be a challenge, particularly when when estimation involves many taxa, large datasets, and missing data.</p>
+<p>Different phylogenetic estimation packages allow users to find starting trees in different ways, such as estimating a tree under parsimony (<span class="citation">Stamatakis (2014)</span>) or neighbor-joining <span class="citation">(Bouckaert et al. 2014)</span>, randomly adding taxa to the tree <span class="citation">(Bouckaert et al. 2014; Stamatakis 2014)</span>, or allowing the user to specify the tree. Addition of taxa is usually performed based on data - that is, using an algorithm (such as parsimony or neighbor-joining) to add the tips to the tree. However, in analyses of the fossil record, specimens may be included for which there are no molecular or morphological characters available, but the taxonomy of the specimen is known via expert opinion. This is the case with many specimens harvested via repositories such as the Paleobiology Database.</p>
+<p>The purpose of this package is to allow users to efficiently add taxa to a given tree to generate a reasonable starting tree. Functions in this package allow taxa to be added to a tree according to either their taxonomy (if other specimens from the same genus are present) in function <code>present_tippr</code>, at random (<code>rand_absent_tippr</code>), or via other user-specified groupings (<code>text_placr</code>). The package uses functions from phytools <span class="citation">(Revell 2012)</span> and ape <span class="citation">(Paradis, Claude, and Strimmer 2004)</span>.</p>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -97,82 +95,113 @@
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(devtools)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"wrightaprilm/treeStartR"</span>)</a></code></pre></div>
 </div>
-<div id="dependencies" class="section level2">
-<h2 class="hasAnchor">
-<a href="#dependencies" class="anchor"></a>Dependencies</h2>
-<p>treeStartR depends on phytools.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(phytools)</a></code></pre></div>
-<pre><code>## Loading required package: ape</code></pre>
-<pre><code>## Loading required package: maps</code></pre>
-</div>
 <div id="usage-example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#usage-example" class="anchor"></a>Usage Example</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">library</span>(treestartr)</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">data</span>(bears)</a></code></pre></div>
-<p>First, we need to load a list of the total set of taxa present in the tree. The “total set” refers to any taxa that will be included in your analysis. This can be either a CSV or a TSV file. A sample list, bears, has been provided as part of the bears data object, but you can also generate one using the function dataf_parser.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">tax_list &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dataf_parsr.html">dataf_parsr</a></span>(<span class="st">"inst/extdata/bears_taxa.tsv"</span>)</a></code></pre></div>
-<p>Next, we find out which of the taxa from our total set are not represented on the tree already. This function takes as input a tree, with or without branch lengths, but without annotations (such as 95% HPDs). It also takes the total set of taxa generated by dataf_parser:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">absent_list &lt;-<span class="st"> </span><span class="kw"><a href="../reference/genera_strippr.html">genera_strippr</a></span>(tree, tax_list)</a></code></pre></div>
-<pre><code>## [1] "Ailurarctos_lufengensis" "Indarctos_punjabiensis" 
-## [3] "Kretzoiarctos_beatrix"   "Parictis_montanus"      
-## [5] "Ursavus_brevirhinus"     "Ursavus_primaevus"      
-## [7] "Ursus_abstrusus"</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(treestartr)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">data</span>(bears)</a></code></pre></div>
+<p>First, we need to load a list of the total set of taxa present in the tree. The “total set” refers to any taxa that will be included in your analysis. This can be either a CSV or a TSV file. A sample list, bears, has been provided as part of the bears data object, but you can also generate one using the function dataf_parser. Note that if you have higher order taxa, for example, if you are placing a fossil that you have identified to family level, but not species level, these should be included as “family_spp.” treeStartR relies on the underscore to separate between the higher order and lower order taxa. Use consistent formatting between the tree and taxon list - i.e, do not call a taxon “Ge_spp” on the tree and “Genus_spp” in the taxon list.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">tax_list &lt;-<span class="st"> </span><span class="kw"><a href="../reference/dataf_parsr.html">dataf_parsr</a></span>(<span class="st">"../inst/extdata/bears_taxa.tsv"</span>)</a></code></pre></div>
+<pre><code>## File format is appropriate</code></pre>
+<pre><code>## .tsv file ending detected.</code></pre>
+<pre><code>## File processing complete.</code></pre>
+<pre><code>## Taxon list names formatted correctly</code></pre>
+<p>Next, we find out which of the taxa from our total set are not represented on the tree already. This function takes as input a tree, with or without branch lengths, but without annotations (such as 95% HPDs). It also takes the total set of taxa generated by <code>dataf_parser</code>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">absent_list &lt;-<span class="st"> </span><span class="kw"><a href="../reference/genera_strippr.html">genera_strippr</a></span>(tree, tax_list)</a></code></pre></div>
 </div>
 <div id="adding-tips-with-congeners" class="section level2">
 <h2 class="hasAnchor">
 <a href="#adding-tips-with-congeners" class="anchor"></a>Adding tips with congeners</h2>
 <p>Finally, we add the tips that are not present to the tree. If there are other representatives of the same genera as an absent taxon (for example, adding an additional “Ursus” species to the example tree), those taxa will be used to place the tip. If there are multiple species of the genera, the new tip will subtend the most recent common ancestor of the tips already on the tree. If there is only one representative, the tip will subtend the parent node of that taxon.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">new_tree &lt;-<span class="st"> </span><span class="kw"><a href="../reference/present_tippr.html">present_tippr</a></span>(tree, absent_list)</a></code></pre></div>
-<pre><code>## Adding tips with congeners on tree:Indarctos_punjabiensis</code></pre>
-<pre><code>## Adding tip via MRCA at 25</code></pre>
-<pre><code>## Adding tips with congeners on tree:Ursus_abstrusus</code></pre>
-<pre><code>## Adding tip via MRCA at 30</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">plot</span>(new_tree)</a></code></pre></div>
-<p><img src="vignette_files/figure-html/unnamed-chunk-6-1.png" width="700"></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">new_tree &lt;-<span class="st"> `</span><span class="dt">present_tippr</span><span class="st">`</span>(tree, absent_list)</a></code></pre></div>
+<pre><code>## Tree tip names formatted correctly</code></pre>
+<pre><code>## Adding tip Indarctos_punjabiensis</code></pre>
+<pre><code>## Adding tip Ursus_abstrusus</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw">plot</span>(new_tree)</a></code></pre></div>
+<p><img src="vignette_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
 </div>
 <div id="adding-tips-manually" class="section level2">
 <h2 class="hasAnchor">
 <a href="#adding-tips-manually" class="anchor"></a>Adding tips manually</h2>
 <p>We can also add the tips that have no congeners. This function will ask for input. A pop-up will be produced, showing node labels. When the program asks for input, you will tell it what node you would like the tip to subtend:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">new_tree &lt;-<span class="st"> </span><span class="kw"><a href="../reference/absent_tippr.html">absent_tippr</a></span>(tree, absent_list)</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">new_tree &lt;-<span class="st"> </span><span class="kw"><a href="../reference/absent_tippr.html">absent_tippr</a></span>(tree, absent_list)</a></code></pre></div>
 </div>
 <div id="adding-tips-at-random" class="section level2">
 <h2 class="hasAnchor">
 <a href="#adding-tips-at-random" class="anchor"></a>Adding tips at random</h2>
 <p>Or, if there are no congeners, you may choose to add tips at random:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">new_tree &lt;-<span class="st"> </span><span class="kw"><a href="../reference/rand_absent_tippr.html">rand_absent_tippr</a></span>(tree, absent_list)</a></code></pre></div>
-<pre><code>## Adding tips at random: Ailurarctos_lufengensis</code></pre>
-<pre><code>## Adding tips at random: Kretzoiarctos_beatrix</code></pre>
-<pre><code>## Adding tips at random: Parictis_montanus</code></pre>
-<pre><code>## Adding tips at random: Ursavus_brevirhinus</code></pre>
-<pre><code>## Adding tips at random: Ursavus_primaevus</code></pre>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw">plot</span>(new_tree)</a></code></pre></div>
-<p><img src="vignette_files/figure-html/unnamed-chunk-8-1.png" width="700"></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">new_tree &lt;-<span class="st"> </span><span class="kw"><a href="../reference/rand_absent_tippr.html">rand_absent_tippr</a></span>(tree, absent_list)</a></code></pre></div>
+<pre><code>## Adding tips at random node: Ailurarctos_lufengensis</code></pre>
+<pre><code>## Adding tips at random node: Kretzoiarctos_beatrix</code></pre>
+<pre><code>## Adding tips at random node: Parictis_montanus</code></pre>
+<pre><code>## Adding tips at random node: Ursavus_brevirhinus</code></pre>
+<pre><code>## Adding tips at random node: Ursavus_primaevus</code></pre>
 </div>
 <div id="adding-tips-via-csv" class="section level2">
 <h2 class="hasAnchor">
 <a href="#adding-tips-via-csv" class="anchor"></a>Adding tips via CSV</h2>
 <p>Lastly, you may have a TSV file that specifies the tips to be added, and a taxon set. treeStartR will locate the MRCA of the taxon set, and add the tips subtending that node.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">new_tree &lt;-<span class="st"> </span><span class="kw"><a href="../reference/text_placr.html">text_placr</a></span>(tree, mrca_df)</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1">new_tree &lt;-<span class="st"> </span><span class="kw"><a href="../reference/text_placr.html">text_placr</a></span>(tree, mrca_df)</a></code></pre></div>
 <pre><code>## Placing tip Kretzoiarctos_beatrix</code></pre>
 <pre><code>## via relatives Indarctos_arctoidesIndarctos_vireti</code></pre>
 <pre><code>##  at node 25</code></pre>
 <pre><code>## Placing tip Ursus_abstrusus</code></pre>
 <pre><code>## via relatives Ursus_arctosUrsus_spelaeusUrsus_americanus</code></pre>
 <pre><code>##  at node 30</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" data-line-number="1"><span class="kw">plot</span>(new_tree)</a></code></pre></div>
-<p><img src="vignette_files/figure-html/unnamed-chunk-9-1.png" width="700"></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="kw">plot</span>(new_tree)</a></code></pre></div>
+<p><img src="vignette_files/figure-html/unnamed-chunk-8-1.png" width="700"></p>
+</div>
+<div id="resolving-polytomies" class="section level2">
+<h2 class="hasAnchor">
+<a href="#resolving-polytomies" class="anchor"></a>Resolving polytomies</h2>
+<p>By default, treeStartR outputs trees with polytomies. This is because the placement of tips is not being estimated from data, but rather placed arbitrarily. RevBayes and BEAST2 read non-bifurcating trees. If you are working with analytical software that does not, you may want to resolve polytomies before export, such as with ape’s <code>multi2di</code> <a href="https://www.rdocumentation.org/packages/ape/versions/5.1/topics/multi2di">function</a>:</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1">ape<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/ape/topics/multi2di">multi2di</a></span>(new_tree)</a></code></pre></div>
+<pre><code>## 
+## Phylogenetic tree with 17 tips and 21 internal nodes.
+## 
+## Tip labels:
+##  Ailuropoda_melanoleuca, Agriarctos_spp, Kretzoiarctos_beatrix, Indarctos_arctoides, Indarctos_vireti, Ursus_abstrusus, ...
+## 
+## Rooted; no branch lengths.</code></pre>
 </div>
 <div id="outputting-results" class="section level2">
 <h2 class="hasAnchor">
 <a href="#outputting-results" class="anchor"></a>Outputting results</h2>
-<p>The final tree can be output using standard functions in ape, such as write.nexus():</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="kw">write.nexus</span>(new_tree, <span class="dt">file =</span> <span class="st">"export_example.tre"</span>)</a></code></pre></div>
+<p>The final tree can be output using standard functions in ape, such as the <code>write.nexus()</code> <a href="https://www.rdocumentation.org/packages/ape/versions/5.2/topics/write.tree">function</a>:</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1">ape<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/ape/topics/write.nexus">write.nexus</a></span>(new_tree, <span class="dt">file =</span> <span class="st">"export_example.tre"</span>)</a></code></pre></div>
 </div>
-<div id="references" class="section level2">
+<div id="flowchart" class="section level2">
+<h2 class="hasAnchor">
+<a href="#flowchart" class="anchor"></a>Flowchart</h2>
+<p>Here is the flowchart of the functions in <code>treeStartR</code>, and when to use them.</p>
+<p><img src="../images/flowchart/flowchart.001.png"></p>
+</div>
+<div id="references" class="section level2 unnumbered">
 <h2 class="hasAnchor">
 <a href="#references" class="anchor"></a>References</h2>
+<div id="refs" class="references">
+<div id="ref-beast2">
+<p>Bouckaert, Remco, Joseph Heled, Denise Kühnert, Tim Vaughan, Chieh-Hsi Wu, Dong Xie, Marc A. Suchard, Andrew Rambaut, and Alexei J. Drummond. 2014. “BEAST 2: A Software Platform for Bayesian Evolutionary Analysis.” <em>PLOS Computational Biology</em> 10 (4). Public Library of Science: 1–6. <a href="https://doi.org/10.1371/journal.pcbi.1003537" class="uri">https://doi.org/10.1371/journal.pcbi.1003537</a>.</p>
+</div>
+<div id="ref-fbd">
+<p>Heath, Tracy A, John P Huelsenbeck, and Tanja Stadler. 2014. “The fossilized birth-death process for coherent calibration of divergence-time estimates.” <em>Proceedings of the National Academy of Sciences</em> 111 (29). National Acad Sciences: E2957–E2966.</p>
+</div>
+<div id="ref-catmodel">
+<p>Lartillot, N., T. Lepage, and S. Blanquart. 2009. “PhyloBayes 3: A Bayesian Software Package for Phylogenetic Reconstruction and Molecular Dating.” <em>Bioinformatics</em> 25 (17). Oxford Univ Press: 2286.</p>
+</div>
+<div id="ref-ape">
+<p>Paradis, E., J. Claude, and K. Strimmer. 2004. “APE: Analyses of Phylogenetics and Evolution in R Language.” <em>Bioinformatics</em> 20 (2). Oxford Univ Press: 289–90.</p>
+</div>
+<div id="ref-phytools">
+<p>Revell, Liam J. 2012. “Phytools: An R Package for Phylogenetic Comparative Biology (and Other Things).” <em>Methods in Ecology and Evolution</em> 3 (2): 217–23. <a href="https://doi.org/10.1111/j.2041-210X.2011.00169.x" class="uri">https://doi.org/10.1111/j.2041-210X.2011.00169.x</a>.</p>
+</div>
+<div id="ref-raxml8">
+<p>Stamatakis, Alexandros. 2014. “RAxML Version 8: A Tool for Phylogenetic Analysis and Post-Analysis of Large Phylogenies.” <em>Bioinformatics</em> 30 (9): 1312–3. <a href="https://doi.org/10.1093/bioinformatics/btu033" class="uri">https://doi.org/10.1093/bioinformatics/btu033</a>.</p>
+</div>
+<div id="ref-wright2016">
+<p>Wright, April M., Graeme T. Lloyd, and David M. Hillis. 2016. “Modeling Character Change Heterogeneity in Phylogenetic Analyses of Morphology Through the Use of Priors.” <em>Systematic Biology</em> 65 (4): 602–11.</p>
+</div>
+</div>
 </div>
   </div>
 
@@ -183,13 +212,14 @@
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#treestartr">treeStartR</a></li>
       <li><a href="#installation">Installation</a></li>
-      <li><a href="#dependencies">Dependencies</a></li>
       <li><a href="#usage-example">Usage Example</a></li>
       <li><a href="#adding-tips-with-congeners">Adding tips with congeners</a></li>
       <li><a href="#adding-tips-manually">Adding tips manually</a></li>
       <li><a href="#adding-tips-at-random">Adding tips at random</a></li>
       <li><a href="#adding-tips-via-csv">Adding tips via CSV</a></li>
+      <li><a href="#resolving-polytomies">Resolving polytomies</a></li>
       <li><a href="#outputting-results">Outputting results</a></li>
+      <li><a href="#flowchart">Flowchart</a></li>
       <li><a href="#references">References</a></li>
       </ul>
 </div>

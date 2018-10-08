@@ -85,7 +85,7 @@ not have congeners on the tree." />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/vignette.html">UNKNOWN TITLE</a>
+      <a href="../articles/vignette.html">README.Rmd</a>
     </li>
   </ul>
 </li>
@@ -117,7 +117,8 @@ not have congeners on the tree.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>rand_absent_tippr</span>(<span class='no'>tree</span>, <span class='no'>absent_list</span>)</pre>
+    <pre class="usage"><span class='fu'>rand_absent_tippr</span>(<span class='no'>tree</span>, <span class='no'>absent_list</span>, <span class='kw'>echo_subtrees</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>echo_revbayes</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -131,6 +132,14 @@ not have congeners on the tree.</p>
       <td><p>Vector of taxa in the total dataset that are not on the
 tree</p></td>
     </tr>
+    <tr>
+      <th>echo_subtrees</th>
+      <td><p>Boolean; Print newick subtree with missing taxa added to screen. Default FALSE.</p></td>
+    </tr>
+    <tr>
+      <th>echo_revbayes</th>
+      <td><p>Boolean; Print clade constraints with missing taxa added to screen, formatted for RevBayes fossilized birth-death analysis. Default FALSE.</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -140,7 +149,7 @@ tree</p></td>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>new_tree</span> <span class='kw'>&lt;-</span> <span class='fu'>rand_absent_tippr</span>(<span class='no'>tree</span>, <span class='no'>absent_list</span>)</div><div class='output co'>#&gt; <span class='message'>Adding tips at random: Ailurarctos_lufengensis</span></div><div class='output co'>#&gt; <span class='warning'>Warning: one tree has no branch lengths, they have been ignored</span></div><div class='output co'>#&gt; <span class='message'>Adding tips at random: Kretzoiarctos_beatrix</span></div><div class='output co'>#&gt; <span class='message'>Adding tips at random: Parictis_montanus</span></div><div class='output co'>#&gt; <span class='message'>Adding tips at random: Ursavus_brevirhinus</span></div><div class='output co'>#&gt; <span class='message'>Adding tips at random: Ursavus_primaevus</span></div></pre>
+    <pre class="examples"><div class='input'><span class='no'>new_tree</span> <span class='kw'>&lt;-</span> <span class='fu'>rand_absent_tippr</span>(<span class='no'>tree</span>, <span class='no'>absent_list</span>)</div><div class='output co'>#&gt; <span class='message'>Adding tips at random node: Ailurarctos_lufengensis</span></div><div class='output co'>#&gt; <span class='message'>Adding tips at random node: Kretzoiarctos_beatrix</span></div><div class='output co'>#&gt; <span class='message'>Adding tips at random node: Parictis_montanus</span></div><div class='output co'>#&gt; <span class='message'>Adding tips at random node: Ursavus_brevirhinus</span></div><div class='output co'>#&gt; <span class='message'>Adding tips at random node: Ursavus_primaevus</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

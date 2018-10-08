@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Add tips to the tree based on taxonomy — present_tippr • treestartr</title>
+<title>Add tips to the tree based on taxonomy. — present_tippr • treestartr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,10 +30,14 @@
 
 
 
-<meta property="og:title" content="Add tips to the tree based on taxonomy — present_tippr" />
+<meta property="og:title" content="Add tips to the tree based on taxonomy. — present_tippr" />
 
 <meta property="og:description" content="Add tips not on existing tree to the tree via an MRCA node,
-if they have congeners" />
+if they have congeners. This function will look to see if any tips on the
+ tree have the same genus as the tip to be added. If there are multiple
+  members of the genus, the tip will be added subtending the MRCA of all
+   present congeners. If there is member of the genus, the tip will be added
+    subtending the parent node of the congener." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -85,7 +89,7 @@ if they have congeners" />
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="../articles/vignette.html">UNKNOWN TITLE</a>
+      <a href="../articles/vignette.html">README.Rmd</a>
     </li>
   </ul>
 </li>
@@ -105,7 +109,7 @@ if they have congeners" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Add tips to the tree based on taxonomy</h1>
+    <h1>Add tips to the tree based on taxonomy.</h1>
     
     <div class="hidden name"><code>present_tippr.Rd</code></div>
     </div>
@@ -113,11 +117,15 @@ if they have congeners" />
     <div class="ref-description">
     
     <p>Add tips not on existing tree to the tree via an MRCA node,
-if they have congeners</p>
+if they have congeners. This function will look to see if any tips on the
+ tree have the same genus as the tip to be added. If there are multiple
+  members of the genus, the tip will be added subtending the MRCA of all
+   present congeners. If there is member of the genus, the tip will be added
+    subtending the parent node of the congener.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>present_tippr</span>(<span class='no'>tree</span>, <span class='no'>absent_list</span>)</pre>
+    <pre class="usage"><span class='fu'>present_tippr</span>(<span class='no'>tree</span>, <span class='no'>absent_list</span>, <span class='kw'>echo_subtrees</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>echo_revbayes</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -130,6 +138,14 @@ if they have congeners</p>
       <th>absent_list</th>
       <td><p>Vector of taxa in the total dataset that are not on the tree</p></td>
     </tr>
+    <tr>
+      <th>echo_subtrees</th>
+      <td><p>Boolean; Print newick subtree with missing taxa added to screen. Default FALSE.</p></td>
+    </tr>
+    <tr>
+      <th>echo_revbayes</th>
+      <td><p>Boolean; Print clade constraints with missing taxa added to screen, formatted for RevBayes fossilized birth-death analysis. Default FALSE.</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -139,7 +155,7 @@ if they have congeners</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>genera_tree</span> <span class='kw'>&lt;-</span> <span class='fu'>present_tippr</span>(<span class='no'>tree</span>, <span class='no'>absent_list</span>)</div><div class='output co'>#&gt; <span class='message'>Adding tips with congeners on tree:Indarctos_punjabiensis</span></div><div class='output co'>#&gt; <span class='message'>Adding tip via MRCA at 25</span></div><div class='output co'>#&gt; <span class='warning'>Warning: one tree has no branch lengths, they have been ignored</span></div><div class='output co'>#&gt; <span class='message'>Adding tips with congeners on tree:Ursus_abstrusus</span></div><div class='output co'>#&gt; <span class='message'>Adding tip via MRCA at 30</span></div></pre>
+    <pre class="examples"><div class='input'><span class='no'>genera_tree</span> <span class='kw'>&lt;-</span> <span class='fu'>present_tippr</span>(<span class='no'>tree</span>, <span class='no'>absent_list</span>)</div><div class='output co'>#&gt; <span class='message'>Tree tip names formatted correctly</span></div><div class='output co'>#&gt; <span class='message'>Adding tip Indarctos_punjabiensis</span></div><div class='output co'>#&gt; <span class='message'>Adding tip Ursus_abstrusus</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
