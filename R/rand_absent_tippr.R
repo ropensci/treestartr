@@ -29,18 +29,23 @@ rand_absent_tippr <- function(tree, absent_list, echo_subtrees = NULL, echo_revb
   lost_df <- get_lost(absent_list, tree)
 
   for (row in seq_len(nrow(lost_df))) {
-    full <- as.character(lost_df[[row, "full_name"]])
-    message("Adding tips at random node: ", full)
+    tip <- as.character(lost_df[[row, "full_name"]])
+    message("Adding tips at random node: ", tip)
     nodel <- tree$edge[, 2]
     num <- sample(nodel, 1)
-    tree <- suppressWarnings(bind.tip(tree, full, where = num))
+    tree <- suppressWarnings(bind.tip(tree, tip, where = num))
     if (!is.null(echo_revbayes)){
-      q_final <- echo_rb(tree, mrca_list, full)
-      cat("clade(", q_final, ")\n")
+      parent <- getParent(tree, num)
+      sub_list <- ape::extract.clade(tree, parent)
+      quote_vec <-paste0('"', sub_list$tip.label, '"')
+      q_vec <-paste0(quote_vec[-length(quote_vec)], ',')
+      q_final <- append(q_vec, tail(quote_vec, n=1))
+      cat("clade(", q_final, ")", '\n')
     }
     if (!is.null(echo_subtrees)){
-      e_t <- echo_subtree(tree, mrca_list, tip)
-      cat("Subtree: ", e_t, "\n")
+      parent <- getParent(tree, num)
+      sub_list <- ape::extract.clade(tree, parent)
+      cat("Subtree:", ape::write.tree(ape::multi2di(sub_list)), '\n')
     }
   }
   return(tree)

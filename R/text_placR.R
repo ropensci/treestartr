@@ -40,11 +40,11 @@ text_placr <- function(tree, mrca_df, echo_subtrees = NULL, echo_revbayes = NULL
 #Place new tip subtending MRCA of provided taxa
     tree <- suppressWarnings(bind.tip(tree, tax, where = loc))
     if (!is.null(echo_revbayes)){
-      q_final <- echo_rb(tree, mrca_list, full)
+      q_final <- echo_rb(tree, mrca_list, tax)
       cat("clade(", q_final, ")")
     }
     if (!is.null(echo_subtrees)){
-      e_t <- echo_subtree(tree, mrca_list, tip)
+      e_t <- echo_subtree(tree, mrca_list, tax)
       cat("Subtree: ", e_t)
     }
   }

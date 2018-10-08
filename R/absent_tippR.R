@@ -30,20 +30,20 @@ absent_tippr <- function(tree, absent_list, echo_subtrees = NULL, echo_revbayes 
   lost_df <- get_lost(absent_list, tree)
 #Iterate over lost_df, adding these tips to tree
   for (row in seq_len(nrow(lost_df))) {
-    full <- as.character(lost_df[[row, "full_name"]])
+    tip <- as.character(lost_df[[row, "full_name"]])
     plot(tree)
     ape::nodelabels()
 #Add tips to tree via user input
-    cat("Refer to the tree that popped up to place taxon ", full, '\n')
+    cat("Refer to the tree that popped up to place taxon ", tip, '\n')
     num <- readline("At which node would you like to place the tip? Enter a number.")
     num <- as.numeric(unlist(strsplit(num, ",")))
-    tree <- suppressWarnings(phytools::bind.tip(tree, full, where = num))
+    tree <- suppressWarnings(phytools::bind.tip(tree, tip, where = num))
     if (!is.null(echo_revbayes)){
       e_t <- echo_subtree(tree, mrca_list, tip)
       cat("Subtree: ", e_t, "\n")
     }
     if (!is.null(echo_subtrees)){
-      q_final <- echo_rb(tree, mrca_list, full)
+      q_final <- echo_rb(tree, mrca_list, tip)
       cat("clade(", q_final, ")\n")
     }
   }

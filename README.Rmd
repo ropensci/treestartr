@@ -59,8 +59,14 @@ absent_list <- genera_strippr(tree, tax_list)
 Finally, we add the tips that are not present to the tree. If there are other representatives of the same genera as an absent taxon (for example, adding an additional "Ursus" species to the example tree), those taxa will be used to place the tip. If there are multiple species of the genera, the new tip will subtend the most recent common ancestor of the tips already on the tree. If there is only one representative, the tip will subtend the parent node of that taxon.
 
 ```{r warning=FALSE}
-new_tree <- `present_tippr`(tree, absent_list)
+new_tree <- present_tippr(tree, absent_list)
 plot(new_tree)
+```
+
+After we have added our tips, we can check how many tips remain to be added, and which they are:
+
+```{r warning=FALSE}
+genera_strippr(new_tree, tax_list)
 ```
 
 ## Adding tips manually
@@ -76,6 +82,14 @@ Or, if there are no congeners, you may choose to add tips at random:
 
 ```{r warning=FALSE}
 new_tree <- rand_absent_tippr(tree, absent_list)
+plot(new_tree)
+```
+
+Running the command again to generate a second random addition tree, and comparing it to the first using the RF distance [@Robinson1981], shows us that the tree topologies truly are different. 
+
+```{r warning=FALSE}
+second_random <- rand_absent_tippr(tree, absent_list)
+phangorn::RF.dist(new_tree, second_random)
 ```
 
 ## Adding tips via CSV
@@ -94,6 +108,21 @@ By default, treeStartR outputs trees with polytomies. This is because the placem
 ```{r}
 ape::multi2di(new_tree)
 ```
+
+## Subtrees and Clade Constraints
+
+All tip addition functions have the capability to write out [RevBayes-formatted](https://revbayes.github.io/tutorials/fbd/#Exercise-ModelFBD) clade constraint strings. The `echo_revbayes` argument allows this.
+
+```{r warning=FALSE}
+text_placr(tree, mrca_df, echo_revbayes = TRUE)
+```
+
+Likewise, subtrees with tips added can be printed to the screen.
+
+```{r warning=FALSE}
+rand_absent_tippr(tree, absent_list, echo_subtrees = TRUE)
+```
+
 
 ## Outputting results
 
