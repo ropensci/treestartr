@@ -13,7 +13,8 @@
 #' @export
 #'
 
-rand_absent_tippr <- function(tree, absent_list, echo_subtrees = NULL, echo_revbayes = NULL){
+rand_absent_tippr <- function(tree, absent_list, echo_subtrees = NULL,
+                              echo_revbayes = NULL){
 #Check that tree is of object phylo
   if (!inherits(tree, "phylo")){
     stop("tree must be of class 'phylo'")

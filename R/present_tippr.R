@@ -17,7 +17,8 @@
 #' @export
 #'
 
-present_tippr <- function(tree, absent_list, echo_subtrees = NULL, echo_revbayes = NULL){
+present_tippr <- function(tree, absent_list, echo_subtrees = NULL,
+                          echo_revbayes = NULL){
 #Check tree is of object phylo
   if (!inherits(tree, "phylo")){
     stop("tree must be of class 'phylo'")

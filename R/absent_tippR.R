@@ -13,7 +13,8 @@
 #' @export
 #'
 
-absent_tippr <- function(tree, absent_list, echo_subtrees = NULL, echo_revbayes = NULL){
+absent_tippr <- function(tree, absent_list, echo_subtrees = NULL,
+                         echo_revbayes = NULL){
 #Ensure our tree is a phylo object.
     if (!inherits(tree, "phylo")){
     stop("tree must be of class 'phylo'")
@@ -31,7 +32,7 @@ absent_tippr <- function(tree, absent_list, echo_subtrees = NULL, echo_revbayes 
 #Iterate over lost_df, adding these tips to tree
   for (row in seq_len(nrow(lost_df))) {
     tip <- as.character(lost_df[[row, "full_name"]])
-    plot(tree)
+    ape::plot(tree)
     ape::nodelabels()
 #Add tips to tree via user input
     cat("Refer to the tree that popped up to place taxon ", tip, '\n')

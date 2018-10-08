@@ -7,9 +7,7 @@
 #' placed on its own line. An example of this file can be seen in `inst/extdat
 #' a/mrca_df.tsv`
 #' @param tree Starting tree; object of type phylo
-#' @param mrca_df Dataframe containing a column of the taxa you'd like to place,
-#'                and one column with the clade into which you'd like to place
-#'                it
+#' @param mrca_df Dataframe containing a column of the taxa you'd like to place and one column with the clade into which you'd like to place it
 #' @param echo_subtrees Boolean; Print newick subtree with missing taxa added to screen. Default FALSE.
 #' @param echo_revbayes Boolean; Print clade constraints with missing taxa added to screen, formatted for RevBayes fossilized birth-death analysis. Default FALSE.
 #' @return tree Phylo object containing the starting tree,
@@ -18,7 +16,8 @@
 #' text_placr(tree, mrca_df)
 #' @export
 
-text_placr <- function(tree, mrca_df, echo_subtrees = NULL, echo_revbayes = NULL){
+text_placr <- function(tree, mrca_df, echo_subtrees = NULL,
+                       echo_revbayes = NULL){
   iter <- unique(as.character(mrca_df$taxon))
 #Get taxa to place
     for (tax in iter) {

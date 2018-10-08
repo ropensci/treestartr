@@ -20,11 +20,15 @@ dataf_parsr <- function(dataf) {
   }
   if (ncol(df) == 2){
     names(df ) <- c("taxon", "age")
-
-  tax_list <- df[c("taxon", "age")]
-  message("File processing complete.")
-  } else if (ncol(df) != 2) {
-    stop("Dataframes should have two columns, taxon and ages")
+    tax_list <- df[c("taxon", "age")]
+    message("File processing complete.")
+  } else if (ncol(df) == 1) {
+    names(df ) <- c("taxon")
+    tax_list <- df[c("taxon")]
+    message("File processing complete.")
+  } else {
+    stop("Dataframes should either one or two columns, minimally a taxon
+         column")
   }
   taxon_testr(tax_list)
   return(tax_list)

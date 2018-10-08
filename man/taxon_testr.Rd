@@ -7,7 +7,7 @@
 taxon_testr(tax_list)
 }
 \arguments{
-\item{dataf}{Taxon list}
+\item{tax_list}{List of taxa parsed from datafile.}
 }
 \value{
 None

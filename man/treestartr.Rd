@@ -6,7 +6,7 @@
 \alias{treestartr-package}
 \title{treestartr: A package for generating reasonable starting trees for phylogenetic analysis.}
 \description{
-treestartr provides multiple ways to add tipts to a starting tree
+treestartr provides multiple ways to add tips to a starting tree
 }
 \section{treestartr functions}{
 
