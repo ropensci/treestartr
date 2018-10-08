@@ -15,9 +15,8 @@ the tip is extant, use 0.0 as the age. Can be CSV or TSV.}
 tax_list Dataframe containing the total set of tips on the tree
 }
 \description{
-Detect file format of taxon list (molecular, morphological, and
-stratigraphic) and maximum age of fossil, see RevBayes total-evidence fossil
-file for an example of this.
+Detect file format of the total taxon list (molecular, morphological, and stratigraphic) and maximum age of fossil, see RevBayes total
+-evidence fossil file for an example of this.
 }
 \examples{
 \dontrun{taxa_df <- dataf_parsr(dataf)}

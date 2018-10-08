@@ -4,13 +4,18 @@
 \alias{rand_absent_tippr}
 \title{Random addition of taxa}
 \usage{
-rand_absent_tippr(tree, absent_list)
+rand_absent_tippr(tree, absent_list, echo_subtrees = NULL,
+  echo_revbayes = NULL)
 }
 \arguments{
 \item{tree}{Starting tree; object of type phylo}
 
 \item{absent_list}{Vector of taxa in the total dataset that are not on the
 tree}
+
+\item{echo_subtrees}{Boolean; Print newick subtree with missing taxa added to screen. Default FALSE.}
+
+\item{echo_revbayes}{Boolean; Print clade constraints with missing taxa added to screen, formatted for RevBayes fossilized birth-death analysis. Default FALSE.}
 }
 \value{
 tree Phylo object containing the starting tree,

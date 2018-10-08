@@ -4,7 +4,7 @@
 \alias{text_placr}
 \title{Add tips to tree via taxon list}
 \usage{
-text_placr(tree, mrca_df)
+text_placr(tree, mrca_df, echo_subtrees = NULL, echo_revbayes = NULL)
 }
 \arguments{
 \item{tree}{Starting tree; object of type phylo}
@@ -12,6 +12,10 @@ text_placr(tree, mrca_df)
 \item{mrca_df}{Dataframe containing a column of the taxa you'd like to place,
 and one column with the clade into which you'd like to place
 it}
+
+\item{echo_subtrees}{Boolean; Print newick subtree with missing taxa added to screen. Default FALSE.}
+
+\item{echo_revbayes}{Boolean; Print clade constraints with missing taxa added to screen, formatted for RevBayes fossilized birth-death analysis. Default FALSE.}
 }
 \value{
 tree Phylo object containing the starting tree,
@@ -19,8 +23,12 @@ tree Phylo object containing the starting tree,
 }
 \description{
 Add tips according to csv or tsv file of taxon names and taxa
-that form the clade
-into which you"d like to insert the tip
+that form the clade into which you"d like to insert the tip. One column
+should be called 'taxon', and should contain the taxon to be placed. The
+ other column should be called 'clade' and contain the taxon with which the
+  taxon to be placed will form a group. Each member of the clade will be
+placed on its own line. An example of this file can be seen in `inst/extdat
+a/mrca_df.tsv`
 }
 \examples{
 text_placr(tree, mrca_df)

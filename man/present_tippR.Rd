@@ -2,14 +2,18 @@
 % Please edit documentation in R/present_tippr.R
 \name{present_tippr}
 \alias{present_tippr}
-\title{Add tips to the tree based on taxonomy}
+\title{Add tips to the tree based on taxonomy.}
 \usage{
-present_tippr(tree, absent_list)
+present_tippr(tree, absent_list, echo_subtrees = NULL, echo_revbayes = NULL)
 }
 \arguments{
 \item{tree}{Starting tree; object of type phylo}
 
 \item{absent_list}{Vector of taxa in the total dataset that are not on the tree}
+
+\item{echo_subtrees}{Boolean; Print newick subtree with missing taxa added to screen. Default FALSE.}
+
+\item{echo_revbayes}{Boolean; Print clade constraints with missing taxa added to screen, formatted for RevBayes fossilized birth-death analysis. Default FALSE.}
 }
 \value{
 tree. Phylo object containing the starting tree,
@@ -17,7 +21,11 @@ tree. Phylo object containing the starting tree,
 }
 \description{
 Add tips not on existing tree to the tree via an MRCA node,
-if they have congeners
+if they have congeners. This function will look to see if any tips on the
+ tree have the same genus as the tip to be added. If there are multiple
+  members of the genus, the tip will be added subtending the MRCA of all
+   present congeners. If there is member of the genus, the tip will be added
+    subtending the parent node of the congener.
 }
 \examples{
 genera_tree <- present_tippr(tree, absent_list)

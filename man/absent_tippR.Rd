@@ -4,12 +4,16 @@
 \alias{absent_tippr}
 \title{Add tips to tree via user input}
 \usage{
-absent_tippr(tree, absent_list)
+absent_tippr(tree, absent_list, echo_subtrees = NULL, echo_revbayes = NULL)
 }
 \arguments{
 \item{tree}{Starting tree; object of type phylo}
 
 \item{absent_list}{Vector of taxa in the total dataset that are not on the tree}
+
+\item{echo_subtrees}{Boolean; Print newick subtree with missing taxa added to screen. Default FALSE.}
+
+\item{echo_revbayes}{Boolean; Print clade constraints with missing taxa added to screen, formatted for RevBayes fossilized birth-death analysis. Default FALSE.}
 }
 \value{
 tree Phylo object containing the starting tree,
@@ -17,7 +21,8 @@ tree Phylo object containing the starting tree,
 }
 \description{
 Add tips not on existing tree to the tree via user input,
-if they do not have congeners on the tree
+if they do not have congeners on the tree. This function will generate a
+ tree, with nodes numbered. For each tip to be added, the user will be asked #'  to enter the number of the node they would like the tip to subtend.
 }
 \examples{
 \dontrun{ new <- absent_tippr(tree, absent_list) }

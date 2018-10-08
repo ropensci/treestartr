@@ -12,12 +12,12 @@ genera_strippr(tree, tax_list)
 \item{tax_list}{Total set of taxa on tree, as dataframe}
 }
 \value{
-absent list of taxa that are present in the total set of trees, but not the starting tree
+absent_list of taxa that are present in the total set of trees, but not the starting tree
 }
 \description{
-See which morphological & stratigraphic genera are represented
-in the molecular tree
+Test which taxa in the total set of taxa are present on the
+tree, and which need to be added.
 }
 \examples{
-absent_taxa <- genera_strippr(tree, bears)
+absent_taxa <- genera_strippr(tree, tax_list = tax_list)
 }
