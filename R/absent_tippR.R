@@ -1,11 +1,11 @@
 #'Add tips to tree via user input
 #' @description Add tips not on existing tree to the tree via user input,
-#' if they do not have congeners on the tree
+#' if they do not have congeners on the tree. This function will generate a
+#'  tree, with nodes numbered. For each tip to be added, the user will be asked #'  to enter the number of the node they would like the tip to subtend.
 #' @param tree Starting tree; object of type phylo
 #' @param absent_list Vector of taxa in the total dataset that are not on the tree
-#' @param echo_subtrees Boolean; Print newick subtree with missing taxa added to screen
-#' @param echo_revbayes Boolean; Print newick subtree with missing taxa added to screen, formatted for RevBayes fossilized birth-death analysis
-#' Default FALSE.
+#' @param echo_subtrees Boolean; Print newick subtree with missing taxa added to screen. Default FALSE.
+#' @param echo_revbayes Boolean; Print clade constraints with missing taxa added to screen, formatted for RevBayes fossilized birth-death analysis. Default FALSE.
 #' @return tree Phylo object containing the starting tree,
 #'          and all tips that were added.
 #' @examples
@@ -39,17 +39,12 @@ absent_tippr <- function(tree, absent_list, echo_subtrees = NULL, echo_revbayes 
     num <- as.numeric(unlist(strsplit(num, ",")))
     tree <- suppressWarnings(phytools::bind.tip(tree, full, where = num))
     if (!is.null(echo_revbayes)){
-      parent <- getParent(tree, num)
-      sub_list <- ape::extract.clade(tree, parent)
-      quote_vec <-paste0('"', c(sub_list$tip.label, full), '"')
-      q_vec <-paste0(quote_vec[-length(quote_vec)], ',')
-      q_final <- append(q_vec, tail(quote_vec, n=1))
-      cat("clade(", q_final, ")", '\n')
+      e_t <- echo_subtree(tree, mrca_list, tip)
+      cat("Subtree: ", e_t, "\n")
     }
     if (!is.null(echo_subtrees)){
-      parent <- getParent(tree, num)
-      sub_list <- ape::multi2di(ape::extract.clade(tree, parent))
-      cat("Subtree:", ape::write.tree(sub_list), '\n')
+      q_final <- echo_rb(tree, mrca_list, full)
+      cat("clade(", q_final, ")\n")
     }
   }
   return(tree)

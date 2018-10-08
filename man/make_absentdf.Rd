@@ -17,5 +17,5 @@ absent_df Dataframe objects expressing which tips are in the total set
 Determine which tips are not on the tree, and get their genera.
 }
 \examples{
-not_present <- make_absentdf(absent_list)
+not_present <- treestartr:::make_absentdf(absent_list)
 }

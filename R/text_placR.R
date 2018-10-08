@@ -1,14 +1,17 @@
 #' Add tips to tree via taxon list
 #' @description Add tips according to csv or tsv file of taxon names and taxa
-#' that form the clade
-#' into which you"d like to insert the tip
+#' that form the clade into which you"d like to insert the tip. One column
+#' should be called 'taxon', and should contain the taxon to be placed. The
+#'  other column should be called 'clade' and contain the taxon with which the
+#'   taxon to be placed will form a group. Each member of the clade will be
+#' placed on its own line. An example of this file can be seen in `inst/extdat
+#' a/mrca_df.tsv`
 #' @param tree Starting tree; object of type phylo
 #' @param mrca_df Dataframe containing a column of the taxa you'd like to place,
 #'                and one column with the clade into which you'd like to place
 #'                it
-#' @param echo_subtrees Boolean; Print newick subtree with missing taxa added #' to screen
-#' @param echo_revbayes Boolean; Print newick subtree with missing taxa added #' to screen, formatted for RevBayes fossilized birth-death analysis
-#' Default FALSE.
+#' @param echo_subtrees Boolean; Print newick subtree with missing taxa added to screen. Default FALSE.
+#' @param echo_revbayes Boolean; Print clade constraints with missing taxa added to screen, formatted for RevBayes fossilized birth-death analysis. Default FALSE.
 #' @return tree Phylo object containing the starting tree,
 #'          and all tips that were added.
 #' @examples
@@ -18,26 +21,31 @@
 text_placr <- function(tree, mrca_df, echo_subtrees = NULL, echo_revbayes = NULL){
   iter <- unique(as.character(mrca_df$taxon))
 #Get taxa to place
-  for (tax in iter) {
+    for (tax in iter) {
 #Find MRCA of povided taxa
     message("Placing tip ", tax)
     mrca_list <- mrca_df$clade[mrca_df$taxon == tax]
+    if (length(mrca_list) == 1) {
+      mrca_list <- as.vector(mrca_list)
+      message("via relative ", mrca_list)
+      num <- which(tree$tip.label %in% mrca_list)
+      loc <- getParent(tree, num)
+      message(" at node ", loc)
+    } else{
     mrca_list <- as.vector(mrca_list)
     message("via relatives ", mrca_list)
     loc <- findMRCA(tree, mrca_list)
     message(" at node ", loc)
+    }
 #Place new tip subtending MRCA of provided taxa
     tree <- suppressWarnings(bind.tip(tree, tax, where = loc))
     if (!is.null(echo_revbayes)){
-      quote_vec <-paste0('"', c(mrca_list, tax), '"')
-      q_vec <-paste0(quote_vec[-length(quote_vec)], ',')
-      q_final <- append(q_vec, tail(quote_vec, n=1))
-      cat("clade(", q_final, ")", '\n')
+      q_final <- echo_rb(tree, mrca_list, full)
+      cat("clade(", q_final, ")")
     }
     if (!is.null(echo_subtrees)){
-      parent <- getParent(tree, loc)
-      sub_list <- ape::multi2di(ape::extract.clade(tree, parent))
-      cat("Subtree:", ape::write.tree(sub_list), '\n')
+      e_t <- echo_subtree(tree, mrca_list, tip)
+      cat("Subtree: ", e_t)
     }
   }
   return(tree)

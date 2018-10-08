@@ -1,11 +1,14 @@
-#' Add tips to the tree based on taxonomy
+#' Add tips to the tree based on taxonomy.
 #' @description Add tips not on existing tree to the tree via an MRCA node,
-#' if they have congeners
+#' if they have congeners. This function will look to see if any tips on the
+#'  tree have the same genus as the tip to be added. If there are multiple
+#'   members of the genus, the tip will be added subtending the MRCA of all
+#'    present congeners. If there is member of the genus, the tip will be added
+#'     subtending the parent node of the congener.
 #' @param tree Starting tree; object of type phylo
 #' @param absent_list Vector of taxa in the total dataset that are not on the tree
-#' @param echo_subtrees Boolean; Print newick subtree with missing taxa added to screen
-#' @param echo_revbayes Boolean; Print newick subtree with missing taxa added to screen, formatted for RevBayes fossilized birth-death analysis
-#' Default FALSE.
+#' @param echo_subtrees Boolean; Print newick subtree with missing taxa added to screen. Default FALSE.
+#' @param echo_revbayes Boolean; Print clade constraints with missing taxa added to screen, formatted for RevBayes fossilized birth-death analysis. Default FALSE.
 
 #' @return tree. Phylo object containing the starting tree,
 #'          and all tips that were added.
@@ -44,32 +47,27 @@ present_tippr <- function(tree, absent_list, echo_subtrees = NULL, echo_revbayes
 #Place tip subtending MRCA of congeners.
       tree <- suppressWarnings(bind.tip(tree, full, where = loc))
       if (!is.null(echo_subtrees)){
-        parent <- getParent(tree, num)
-        echo_tree <- ape::extract.clade(tree, parent)
-        message(ape::write.tree(echo_tree))
+        e_t <- echo_subtree(tree, mrca_list, tip)
+        cat("Subtree: ", e_t)
       }
       if (!is.null(echo_revbayes)){
-        mrca_list <- append(mrca_list, full)
-        quote_vec <-paste0('"', mrca_list, '"')
-        q_vec <-paste0(quote_vec[-length(quote_vec)], ',')
-        q_final <- append(q_vec, tail(quote_vec, n=1))
-        #        message(sprintf("clade(%s", quote_vec, ')'))
+        q_final <- echo_rb(tree, mrca_list, full)
         cat("clade(", q_final, ")")
       }
     }else if (length(mrca_list) <= 1) {
 #If one congener, new tip will subtend parent node of congener.
-      loc <- getParent(tree, mrca_list[1])
+      num <- which(tree$tip.label %in% mrca_list[1])
+      print(mrca_list)
+      loc <- getParent(tree, loc)
       message(sprintf("Adding tip %s", full, " via parent node  %s", loc))
       tree <- suppressWarnings(bind.tip(tree, full, where = loc))
       if (!is.null(echo_revbayes)){
-        mrca_list <- append(mrca_list, full)
-        quote_vec <-paste0('"', mrca_list, '"')
-        q_vec <-paste0(quote_vec[-length(quote_vec)], ',')
-        q_final <- append(q_vec, tail(quote_vec, n=1))
+        q_final <- echo_rb(tree, mrca_list, full)
         cat("clade(", q_final, ")")
       }
       if (!is.null(echo_subtrees)){
-        message(sprintf("Subtree: %", c(mrca_list, full)))
+        e_t <- echo_subtree(tree, mrca_list, tip)
+        cat("Subtree: ", e_t)
     }
     }
   }

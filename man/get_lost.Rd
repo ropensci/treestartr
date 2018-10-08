@@ -20,5 +20,5 @@ Determine which tips that are not on the tree, puts them in a dataframe if they
 do not have congeners on the tree
 }
 \examples{
-no_congeners <- get_lost(absent_list, tree)
+no_congeners <- treestartr:::get_lost(absent_list, tree)
 }

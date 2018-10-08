@@ -6,8 +6,7 @@
 #' @return found_df Dataframe objects expressing the tips that are not
 #'         on the tree, if they have congeners on the tree
 #' @examples
-#' has_congeners <- get_found(absent_list, tree)
-#' @export
+#' has_congeners <- treestartr:::get_found(absent_list, tree)
 
 get_found <- function(absent_list, tree){
   absent_df <- make_absentdf(absent_list)

@@ -4,8 +4,7 @@
 #' @return absent_df Dataframe objects expressing which tips are in the total set
 #'         but not the tree, and their genera
 #' @examples
-#' not_present <- make_absentdf(absent_list)
-#' @export
+#' not_present <- treestartr:::make_absentdf(absent_list)
 
 make_absentdf <- function(absent_list){
   absent_df <- data.frame(matrix(ncol = 2, nrow = length(absent_list)))

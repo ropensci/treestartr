@@ -20,5 +20,5 @@ Determine which tips that are not on the tree, and checks if they have congeners
 on the tree.
 }
 \examples{
-has_congeners <- get_found(absent_list, tree)
+has_congeners <- treestartr:::get_found(absent_list, tree)
 }
