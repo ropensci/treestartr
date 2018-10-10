@@ -9,9 +9,7 @@ text_placr(tree, mrca_df, echo_subtrees = NULL, echo_revbayes = NULL)
 \arguments{
 \item{tree}{Starting tree; object of type phylo}
 
-\item{mrca_df}{Dataframe containing a column of the taxa you'd like to place,
-and one column with the clade into which you'd like to place
-it}
+\item{mrca_df}{Dataframe containing a column of the taxa you'd like to place and one column with the clade into which you'd like to place it}
 
 \item{echo_subtrees}{Boolean; Print newick subtree with missing taxa added to screen. Default FALSE.}
 

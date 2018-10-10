@@ -4,12 +4,12 @@
 \alias{genera_strippr}
 \title{Check if tip is on tree}
 \usage{
-genera_strippr(tree, tax_list)
+genera_strippr(tree, tax_frame)
 }
 \arguments{
 \item{tree}{Starting phylogeny, of type phylo}
 
-\item{tax_list}{Total set of taxa on tree, as dataframe}
+\item{tax_frame}{Total set of taxa on tree, as dataframe.}
 }
 \value{
 absent_list of taxa that are present in the total set of trees, but not the starting tree
@@ -19,5 +19,5 @@ Test which taxa in the total set of taxa are present on the
 tree, and which need to be added.
 }
 \examples{
-absent_taxa <- genera_strippr(tree, tax_list = tax_list)
+absent_taxa <- genera_strippr(tree, tax_frame = tax_frame)
 }

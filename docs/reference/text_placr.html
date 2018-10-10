@@ -138,9 +138,7 @@ a/mrca_df.tsv`</p>
     </tr>
     <tr>
       <th>mrca_df</th>
-      <td><p>Dataframe containing a column of the taxa you'd like to place,
-and one column with the clade into which you'd like to place
-it</p></td>
+      <td><p>Dataframe containing a column of the taxa you'd like to place and one column with the clade into which you'd like to place it</p></td>
     </tr>
     <tr>
       <th>echo_subtrees</th>
@@ -159,7 +157,7 @@ it</p></td>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>text_placr</span>(<span class='no'>tree</span>, <span class='no'>mrca_df</span>)</div><div class='output co'>#&gt; <span class='message'>Placing tip Kretzoiarctos_beatrix</span></div><div class='output co'>#&gt; <span class='message'>via relatives Indarctos_arctoidesIndarctos_vireti</span></div><div class='output co'>#&gt; <span class='message'> at node 25</span></div><div class='output co'>#&gt; <span class='message'>Placing tip Ursus_abstrusus</span></div><div class='output co'>#&gt; <span class='message'>via relatives Ursus_arctosUrsus_spelaeusUrsus_americanus</span></div><div class='output co'>#&gt; <span class='message'> at node 30</span></div><div class='output co'>#&gt; 
+    <pre class="examples"><div class='input'><span class='fu'>text_placr</span>(<span class='no'>tree</span>, <span class='no'>mrca_df</span>)</div><div class='output co'>#&gt; <span class='message'>Placing tip Kretzoiarctos_beatrix</span></div><div class='output co'>#&gt; <span class='message'>via relatives Indarctos_arctoides, Indarctos_vireti</span></div><div class='output co'>#&gt; <span class='message'> at node 25</span></div><div class='output co'>#&gt; <span class='message'>Placing tip Ursus_abstrusus</span></div><div class='output co'>#&gt; <span class='message'>via relatives Ursus_arctos, Ursus_spelaeus, Ursus_americanus</span></div><div class='output co'>#&gt; <span class='message'> at node 30</span></div><div class='output co'>#&gt; 
 #&gt; Phylogenetic tree with 17 tips and 19 internal nodes.
 #&gt; 
 #&gt; Tip labels:
