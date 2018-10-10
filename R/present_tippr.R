@@ -58,8 +58,7 @@ present_tippr <- function(tree, absent_list, echo_subtrees = NULL,
     }else if (length(mrca_list) <= 1) {
 #If one congener, new tip will subtend parent node of congener.
       num <- which(tree$tip.label %in% mrca_list[1])
-      print(mrca_list)
-      loc <- getParent(tree, loc)
+      loc <- getParent(tree, num)
       message(sprintf("Adding tip %s", full, " via parent node  %s", loc))
       tree <- suppressWarnings(bind.tip(tree, full, where = loc))
       if (!is.null(echo_revbayes)){

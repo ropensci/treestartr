@@ -4,10 +4,10 @@
 \alias{taxon_testr}
 \title{Utility function to check taxon_names in parsed data file}
 \usage{
-taxon_testr(tax_list)
+taxon_testr(tax_frame)
 }
 \arguments{
-\item{tax_list}{List of taxa parsed from datafile.}
+\item{tax_frame}{Dataframe of taxa parsed from datafile.}
 }
 \value{
 None

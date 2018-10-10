@@ -2,9 +2,9 @@
 #' @description Detect file format of the total taxon list (molecular, morphological, and stratigraphic) and maximum age of fossil, see RevBayes total
 #' -evidence fossil file for an example of this.
 #' @param dataf A data frame with one column containing the taxon name of tips in phylogenetic tree. Optionally, a second column can indicate the maximum age of the tip. If the tip is extant, use 0.0 as the age. Can be CSV or TSV.
-#' @return tax_list Dataframe containing the total set of tips on the tree
+#' @return tax_frame Dataframe containing the total set of tips on the tree
 #' @examples
-#' \dontrun{taxa_df <- dataf_parsr(dataf)}
+#' \dontrun{tax_frame <- dataf_parsr(dataf)}
 #' @export
 
 dataf_parsr <- function(dataf) {
@@ -17,17 +17,18 @@ dataf_parsr <- function(dataf) {
     df <- read.csv(file = dataf)
   }
   if (ncol(df) == 2){
-    names(df ) <- c("taxon", "age")
-    tax_list <- df[c("taxon", "age")]
+    names(df) <- c("taxon", "age")
+    tax_frame <- df[c("taxon", "age")]
     message("File processing complete.")
   } else if (ncol(df) == 1) {
     names(df ) <- c("taxon")
-    tax_list <- df[c("taxon")]
+    tax_frame <- df[c("taxon")]
     message("File processing complete.")
   } else {
     stop("Dataframes should either one or two columns, minimally a taxon
          column")
   }
-  taxon_testr(tax_list)
-  return(tax_list)
+  taxon_testr(tax_frame)
+  tax_frame <- as.data.frame(tax_frame)
+  return(tax_frame)
 }

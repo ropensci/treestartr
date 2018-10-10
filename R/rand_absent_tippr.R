@@ -34,7 +34,7 @@ rand_absent_tippr <- function(tree, absent_list, echo_subtrees = NULL,
     message("Adding tips at random node: ", tip)
     nodel <- tree$edge[, 2]
     num <- sample(nodel, 1)
-    tree <- suppressWarnings(bind.tip(tree, tip, where = num))
+    tree <- suppressWarnings(phytools::bind.tip(tree, tip, where = num))
     if (!is.null(echo_revbayes)){
       parent <- getParent(tree, num)
       sub_list <- ape::extract.clade(tree, parent)

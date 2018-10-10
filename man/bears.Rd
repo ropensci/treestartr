@@ -6,7 +6,7 @@
 \title{bears}
 \format{A collection of objects representing function inputs:
 \describe{
-    \item{tax_list}{a two-column dataset of taxon names and ages}
+    \item{tax_frame}{a two-column dataframe of taxon names and ages}
     \item{absent_list}{A list of taxa in the total data set, but are not on the tree}
     \item{mrca_df}{a two-column dataframe of taxa to be placed, and a set of taxa that indicate the MRCA which they will subtend}
     \item{tree}{A phylogenetic tree to which tips will be added}

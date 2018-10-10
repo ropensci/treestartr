@@ -21,7 +21,6 @@ text_placr <- function(tree, mrca_df, echo_subtrees = NULL,
   iter <- unique(as.character(mrca_df$taxon))
 #Get taxa to place
     for (tax in iter) {
-#Find MRCA of povided taxa
     message("Placing tip ", tax)
     mrca_list <- mrca_df$clade[mrca_df$taxon == tax]
     if (length(mrca_list) == 1) {
@@ -32,8 +31,9 @@ text_placr <- function(tree, mrca_df, echo_subtrees = NULL,
       message(" at node ", loc)
     } else{
     mrca_list <- as.vector(mrca_list)
-    message("via relatives ", mrca_list)
-    loc <- findMRCA(tree, mrca_list)
+    q_vec <-paste(as.character(mrca_list), collapse=", ")
+    message("via relatives ", q_vec)
+    loc <- ape::getMRCA(tree, mrca_list)
     message(" at node ", loc)
     }
 #Place new tip subtending MRCA of provided taxa
