@@ -1,6 +1,6 @@
 #' Check if tip is on tree
 #' @description Test which taxa in the total set of taxa are present on the
-#' tree, and which need to be added.
+#' tree, and which need to be added. The tax_frame object is assumed to be a dataframe, minimally with a column labeled "taxon". If this column does not exist, the first column in the dataframe will be assumed to contain the taxon information.
 #' @param tree Starting phylogeny, of type phylo
 #' @param tax_frame Total set of taxa on tree, as dataframe.
 #' @return absent_list of taxa that are present in the total set of trees, but not the starting tree
@@ -22,7 +22,7 @@ genera_strippr <- function(tree, tax_frame){
       names(tax_frame) <- "taxon"
     }
     else {
-      stop("Taxon frame must be a dataframe")
+      stop("Taxon frame must be a dataframe containing, at minimum, a column labeled taxon, which contains the total set of taxa both on the tree and to be added.")
   }
 #Get taxa which are not on tree
   total_set <- unname(unlist(lapply(tax_frame["taxon"], as.character)))
