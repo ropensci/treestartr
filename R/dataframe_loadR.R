@@ -18,11 +18,11 @@ dataf_parsr <- function(dataf) {
   }
   if (ncol(df) == 2){
     names(df) <- c("taxon", "age")
-    tax_frame <- df[c("taxon", "age")]
+    tax_frame <- df
     message("File processing complete.")
   } else if (ncol(df) == 1) {
-    names(df ) <- c("taxon")
-    tax_frame <- df[c("taxon")]
+    names(df) <- "taxon"
+    tax_frame <- df
     message("File processing complete.")
   } else {
     stop("Dataframes should either one or two columns, minimally a taxon

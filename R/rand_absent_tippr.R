@@ -27,13 +27,18 @@ rand_absent_tippr <- function(tree, absent_list, echo_subtrees = NULL,
   } else{
     message("Echoing RevBayes-formatted Subtrees to Screen")
   }
-  lost_df <- get_lost(absent_list, tree)
+  lost_df <- treestartr:::get_lost(absent_list, tree)
 
   for (row in seq_len(nrow(lost_df))) {
     tip <- as.character(lost_df[[row, "full_name"]])
     message("Adding tips at random node: ", tip)
     nodel <- tree$edge[, 2]
+    if(exists("num") == TRUE){
+      parent <- getParent(tree, num)
+      nodel <- nodel[! nodel == num]
+    }
     num <- sample(nodel, 1)
+    print(num)
     tree <- suppressWarnings(phytools::bind.tip(tree, tip, where = num))
     if (!is.null(echo_revbayes)){
       parent <- getParent(tree, num)

@@ -10,10 +10,9 @@ URL: https://wrightaprilm.github.io/treeStartR/
 BugReports: https://github.com/wrightaprilm/treeStartR/issues
 License: MIT + file LICENSE
 Depends:
-	R (>= 3.0.0)
-Imports:
+	R (>= 3.0.0),
 	phytools (>= 0.6-4),
-	ape
+	ape (>= 5.0)
 Suggests:
     knitr,
     testthat,

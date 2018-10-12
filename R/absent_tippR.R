@@ -32,8 +32,9 @@ absent_tippr <- function(tree, absent_list, echo_subtrees = NULL,
 #Iterate over lost_df, adding these tips to tree
   for (row in seq_len(nrow(lost_df))) {
     tip <- as.character(lost_df[[row, "full_name"]])
-    plot(tree)
+    suppressWarnings(plot(tree))
     ape::nodelabels()
+    ape::tiplabels()
 #Add tips to tree via user input
     cat("Refer to the tree that popped up to place taxon ", tip, '\n')
     num <- readline("At which node would you like to place the tip? Enter a number.")

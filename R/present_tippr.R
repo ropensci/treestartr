@@ -42,6 +42,7 @@ present_tippr <- function(tree, absent_list, echo_subtrees = NULL,
 #Locate MRCA on tree for each set of congeners.
     mrca_list <- list()
     mrca_list <- tree_df$fullnames[tree_df$genera == gen]
+    print(mrca_list)
     if (length(mrca_list) > 1) {
       loc <- findMRCA(tree, mrca_list)
       message(sprintf("Adding tip %s", full, " to MRCA at node %s", loc))
@@ -55,12 +56,15 @@ present_tippr <- function(tree, absent_list, echo_subtrees = NULL,
         q_final <- echo_rb(tree, mrca_list, full)
         cat("clade(", q_final, ")")
       }
-    }else if (length(mrca_list) <= 1) {
+    } else if (length(mrca_list) <= 1) {
 #If one congener, new tip will subtend parent node of congener.
-      num <- which(tree$tip.label %in% mrca_list[1])
-      loc <- getParent(tree, num)
-      message(sprintf("Adding tip %s", full, " via parent node  %s", loc))
+      loc <- which(tree$tip.label %in% mrca_list[1])
+      message(sprintf("Adding tip %s", full ))
+      message(sprintf(" as sister to %s", mrca_list[1]))
       tree <- suppressWarnings(bind.tip(tree, full, where = loc))
+      found_df <- get_found(absent_list, tree)
+      tree_df <- make_treedf(tree)
+
       if (!is.null(echo_revbayes)){
         q_final <- echo_rb(tree, mrca_list, full)
         cat("clade(", q_final, ")")

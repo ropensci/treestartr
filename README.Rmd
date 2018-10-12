@@ -71,7 +71,7 @@ genera_strippr(new_tree, tax_frame)
 
 ## Adding tips manually
 
-We can also add the tips that have no congeners. This function will ask for input. A pop-up will be produced, showing node labels. When the program asks for input, you will tell it what node you would like the tip to subtend:
+We can also add the tips that have no congeners. This function will ask for input. A pop-up will be produced, showing node labels. When the program asks for input, you will tell it what node you would like the tip to subtend. Alternatively, if you would like to place the tip as sister to a tip on the tree, enter the number of the tip. Tip numbers are highlighted in yellow.
 
 ```{r eval=FALSE}
 new_tree <- absent_tippr(tree, absent_list)

@@ -25,9 +25,8 @@ text_placr <- function(tree, mrca_df, echo_subtrees = NULL,
     mrca_list <- mrca_df$clade[mrca_df$taxon == tax]
     if (length(mrca_list) == 1) {
       mrca_list <- as.vector(mrca_list)
-      message("via relative ", mrca_list)
-      num <- which(tree$tip.label %in% mrca_list)
-      loc <- getParent(tree, num)
+      message("as sister to ", mrca_list)
+      loc <- which(tree$tip.label %in% mrca_list)
       message(" at node ", loc)
     } else{
     mrca_list <- as.vector(mrca_list)

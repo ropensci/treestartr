@@ -14,15 +14,15 @@ genera_strippr <- function(tree, tax_frame){
     stop("tree must be of class 'phylo'")
     }
     if (! is.data.frame(tax_frame)){
-    tax_frame <- as.data.frame(tax_frame)
+      tax_frame <- as.data.frame(tax_frame)
+    }
     if (ncol(tax_frame) == 2){
       names(tax_frame) <- c("taxon", "age")
     } else if (ncol(tax_frame) == 1) {
-      names(tax_frame) <- c("taxon")
+      names(tax_frame) <- "taxon"
     }
     else {
       stop("Taxon frame must be a dataframe")
-    }
   }
 #Get taxa which are not on tree
   total_set <- unname(unlist(lapply(tax_frame["taxon"], as.character)))
