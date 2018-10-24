@@ -7,7 +7,6 @@
 #'         on the tree, and don"t have congeners
 #' @examples
 #' no_congeners <- treestartr:::get_lost(absent_list, tree)
-#' @export
 
 get_lost <- function(absent_list, tree){
   absent_df <- make_absentdf(absent_list)

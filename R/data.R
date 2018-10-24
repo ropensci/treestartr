@@ -4,7 +4,7 @@
 #'
 #' @docType data
 #' @keywords datasets
-#'
+#'@aliases tax_frame absent_list mrca_df tree
 #' @usage data(bears)
 #' @format A collection of objects representing function inputs:
 #' \describe{

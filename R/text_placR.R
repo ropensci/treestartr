@@ -14,6 +14,7 @@
 #'          and all tips that were added.
 #' @examples
 #' text_placr(tree, mrca_df)
+#' @importFrom ape getMRCA
 #' @export
 
 text_placr <- function(tree, mrca_df, echo_subtrees = NULL,

@@ -8,6 +8,7 @@
 #' @param echo_revbayes Boolean; Print clade constraints with missing taxa added to screen, formatted for RevBayes fossilized birth-death analysis. Default FALSE.
 #' @return tree Phylo object containing the starting tree,
 #'          and all tips that were added.
+#' @importFrom utils tail
 #' @examples
 #' new_tree <- rand_absent_tippr(tree, absent_list)
 #' @export
@@ -27,7 +28,7 @@ rand_absent_tippr <- function(tree, absent_list, echo_subtrees = NULL,
   } else{
     message("Echoing RevBayes-formatted Subtrees to Screen")
   }
-  lost_df <- treestartr:::get_lost(absent_list, tree)
+  lost_df <- get_lost(absent_list, tree)
 
   for (row in seq_len(nrow(lost_df))) {
     tip <- as.character(lost_df[[row, "full_name"]])

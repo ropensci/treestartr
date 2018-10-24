@@ -16,8 +16,7 @@ Depends:
 Suggests:
     knitr,
     testthat,
-    covr,
-    utils
+    covr
 VignetteBuilder: utils
 Encoding: UTF-8
 LazyData: true

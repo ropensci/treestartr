@@ -3,6 +3,7 @@
 #' -evidence fossil file for an example of this.
 #' @param dataf A data frame with one column containing the taxon name of tips in phylogenetic tree. Optionally, a second column can indicate the maximum age of the tip. If the tip is extant, use 0.0 as the age. Can be CSV or TSV.
 #' @return tax_frame Dataframe containing the total set of tips on the tree
+#' @importFrom utils read.csv
 #' @examples
 #' \dontrun{tax_frame <- dataf_parsr(dataf)}
 #' @export

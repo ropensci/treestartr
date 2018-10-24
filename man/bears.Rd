@@ -3,6 +3,10 @@
 \docType{data}
 \name{bears}
 \alias{bears}
+\alias{tax_frame}
+\alias{absent_list}
+\alias{mrca_df}
+\alias{tree}
 \title{bears}
 \format{A collection of objects representing function inputs:
 \describe{

@@ -49,7 +49,7 @@ present_tippr <- function(tree, absent_list, echo_subtrees = NULL,
 #Place tip subtending MRCA of congeners.
       tree <- suppressWarnings(bind.tip(tree, full, where = loc))
       if (!is.null(echo_subtrees)){
-        e_t <- echo_subtree(tree, mrca_list, tip)
+        e_t <- echo_subtree(tree, mrca_list, full)
         cat("Subtree: ", e_t)
       }
       if (!is.null(echo_revbayes)){
@@ -70,7 +70,7 @@ present_tippr <- function(tree, absent_list, echo_subtrees = NULL,
         cat("clade(", q_final, ")")
       }
       if (!is.null(echo_subtrees)){
-        e_t <- echo_subtree(tree, mrca_list, tip)
+        e_t <- echo_subtree(tree, mrca_list, full)
         cat("Subtree: ", e_t)
     }
     }
