@@ -124,7 +124,7 @@ text_placr(tree, mrca_df, echo_revbayes = TRUE)
 Likewise, subtrees with tips added can be printed to the screen.
 
 ```{r warning=FALSE}
-rand_absent_tippr(tree, absent_list, echo_subtrees = TRUE)
+present_tippr(tree, absent_list, echo_subtrees = TRUE)
 ```
 
 
