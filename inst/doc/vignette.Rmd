@@ -1,20 +1,20 @@
 ---
-title: "README.Rmd"
+title: "treeStartR"
+Author: "April Wright"
+date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{<treeStartR>} 
-  %\VignetteEngine{knitr::knitr}
-  %\usepackage[utf8]{inputenc}
-bibliography: bibliography.bib
----
+bibliography: ../../bibliography.bib
 
+vignette: >
+vignette: >
+  %\VignetteIndexEntry{treeStartR Usage Examples}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-![logo](images/logo1.png)
-[![Build Status](https://travis-ci.org/wrightaprilm/treeStartR.svg?branch=master)](https://travis-ci.org/wrightaprilm/treeStartR)
-[![codecov](https://codecov.io/gh/wrightaprilm/treeStartR/branch/master/graph/badge.svg)](https://codecov.io/gh/wrightaprilm/treeStartR)
-
+![logo](../../images/logo1.png)
 
 ## treeStartR
 
@@ -115,7 +115,7 @@ ape::multi2di(new_tree)
 
 ## Subtrees and Clade Constraints
 
-All tip addition functions, except `absent_tippr` have the capability to write out [RevBayes-formatted](https://revbayes.github.io/tutorials/fbd/#Exercise-ModelFBD) clade constraint strings. The `echo_revbayes` argument allows this.
+All tip addition functions have the capability to write out [RevBayes-formatted](https://revbayes.github.io/tutorials/fbd/#Exercise-ModelFBD) clade constraint strings. The `echo_revbayes` argument allows this.
 
 ```{r warning=FALSE}
 text_placr(tree, mrca_df, echo_revbayes = TRUE)
@@ -140,6 +140,6 @@ ape::write.nexus(new_tree, file = "data/export_example.tre")
 
 Here is the flowchart of the functions in `treeStartR`, and when to use them.
 
-![](images/flowchart/flowchart.001.png)
+![](../../images/flowchart/flowchart.001.png)
 
 ## References
