@@ -3,3 +3,11 @@
 paper/*.texpadtmp
 .travis.yml
 ^codecov\.yml$
+README.Rmd
+README.html
+bibliography.bib
+deprecated/
+docs/
+images/
+paper/
+refs.bib
