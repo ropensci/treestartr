@@ -115,7 +115,7 @@ ape::multi2di(new_tree)
 
 ## Subtrees and Clade Constraints
 
-All tip addition functions have the capability to write out [RevBayes-formatted](https://revbayes.github.io/tutorials/fbd/#Exercise-ModelFBD) clade constraint strings. The `echo_revbayes` argument allows this.
+All tip addition functions, except `absent_tippr` have the capability to write out [RevBayes-formatted](https://revbayes.github.io/tutorials/fbd/#Exercise-ModelFBD) clade constraint strings. The `echo_revbayes` argument allows this.
 
 ```{r warning=FALSE}
 text_placr(tree, mrca_df, echo_revbayes = TRUE)
@@ -142,4 +142,4 @@ Here is the flowchart of the functions in `treeStartR`, and when to use them.
 
 ![](../../images/flowchart/flowchart.001.png)
 
-## References
+##References
