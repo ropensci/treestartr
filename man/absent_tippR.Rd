@@ -4,16 +4,12 @@
 \alias{absent_tippr}
 \title{Add tips to tree via user input}
 \usage{
-absent_tippr(tree, absent_list, echo_subtrees = NULL, echo_revbayes = NULL)
+absent_tippr(tree, absent_list)
 }
 \arguments{
 \item{tree}{Starting tree; object of type phylo}
 
 \item{absent_list}{Vector of taxa in the total dataset that are not on the tree}
-
-\item{echo_subtrees}{Boolean; Print newick subtree with missing taxa added to screen. Default FALSE.}
-
-\item{echo_revbayes}{Boolean; Print clade constraints with missing taxa added to screen, formatted for RevBayes fossilized birth-death analysis. Default FALSE.}
 }
 \value{
 tree Phylo object containing the starting tree,

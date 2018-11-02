@@ -16,7 +16,7 @@ absent_list of taxa that are present in the total set of trees, but not the star
 }
 \description{
 Test which taxa in the total set of taxa are present on the
-tree, and which need to be added.
+tree, and which need to be added. The tax_frame object is assumed to be a dataframe, minimally with a column labeled "taxon". If this column does not exist, the first column in the dataframe will be assumed to contain the taxon information.
 }
 \examples{
 absent_taxa <- genera_strippr(tree, tax_frame = tax_frame)

@@ -4,7 +4,8 @@
 \alias{present_tippr}
 \title{Add tips to the tree based on taxonomy.}
 \usage{
-present_tippr(tree, absent_list, echo_subtrees = NULL, echo_revbayes = NULL)
+present_tippr(tree, absent_list, echo_subtrees = NULL,
+  echo_revbayes = NULL)
 }
 \arguments{
 \item{tree}{Starting tree; object of type phylo}
