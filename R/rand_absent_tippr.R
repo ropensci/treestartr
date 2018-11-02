@@ -39,6 +39,9 @@ rand_absent_tippr <- function(tree, absent_list, echo_subtrees = NULL,
       nodel <- nodel[! nodel == num]
     }
     num <- sample(nodel, 1)
+    if (is.null(num)){
+      num <- num + 1
+    }
     print(num)
     tree <- suppressWarnings(phytools::bind.tip(tree, tip, where = num))
     if (!is.null(echo_revbayes)){
