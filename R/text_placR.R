@@ -12,9 +12,9 @@
 #' @param echo_revbayes Boolean; Print clade constraints with missing taxa added to screen, formatted for RevBayes fossilized birth-death analysis. Default FALSE.
 #' @return tree Phylo object containing the starting tree,
 #'          and all tips that were added.
+#' @importFrom ape getMRCA
 #' @examples
 #' text_placr(tree, mrca_df)
-#' @importFrom ape getMRCA
 #' @export
 
 text_placr <- function(tree, mrca_df, echo_subtrees = NULL,

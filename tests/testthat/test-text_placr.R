@@ -1,4 +1,4 @@
-library(phytools)
+library(ape)
 
 test_that("Test text_placr(tree, mrca_df)", {
   tree <- read.nexus("testdata/simple.tre")

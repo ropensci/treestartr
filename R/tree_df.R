@@ -2,7 +2,6 @@
 #'
 #' @param tree Starting tree; object of type phylo
 #' @return tree_df Dataframe objects expressing the tips, and their genera
-#' @import phytools
 #'
 
 make_treedf <- function(tree){

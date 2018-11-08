@@ -9,6 +9,9 @@
 #' @return tree Phylo object containing the starting tree,
 #'          and all tips that were added.
 #' @importFrom utils tail
+#' @importFrom phytools getParent
+#' @importFrom ape extract.clade
+#' @importFrom ape write.tree
 #' @examples
 #' new_tree <- rand_absent_tippr(tree, absent_list)
 #' @export
@@ -35,7 +38,7 @@ rand_absent_tippr <- function(tree, absent_list, echo_subtrees = NULL,
     message("Adding tips at random node: ", tip)
     nodel <- tree$edge[, 2]
     if(exists("num") == TRUE){
-      parent <- getParent(tree, num)
+      parent <- phytools::getParent(tree, num)
       nodel <- nodel[! nodel == num]
     }
     num <- sample(nodel, 1)
@@ -45,7 +48,7 @@ rand_absent_tippr <- function(tree, absent_list, echo_subtrees = NULL,
     print(num)
     tree <- suppressWarnings(phytools::bind.tip(tree, tip, where = num))
     if (!is.null(echo_revbayes)){
-      parent <- getParent(tree, num)
+      parent <- phytools::getParent(tree, num)
       sub_list <- ape::extract.clade(tree, parent)
       quote_vec <-paste0('"', sub_list$tip.label, '"')
       q_vec <-paste0(quote_vec[-length(quote_vec)], ',')
@@ -53,7 +56,7 @@ rand_absent_tippr <- function(tree, absent_list, echo_subtrees = NULL,
       cat("clade(", q_final, ")", '\n')
     }
     if (!is.null(echo_subtrees)){
-      parent <- getParent(tree, num)
+      parent <- phytools::getParent(tree, num)
       sub_list <- ape::extract.clade(tree, parent)
       cat("Subtree:", ape::write.tree(ape::multi2di(sub_list)), '\n')
     }

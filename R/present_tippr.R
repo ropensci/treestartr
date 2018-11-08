@@ -9,9 +9,10 @@
 #' @param absent_list Vector of taxa in the total dataset that are not on the tree
 #' @param echo_subtrees Boolean; Print newick subtree with missing taxa added to screen. Default FALSE.
 #' @param echo_revbayes Boolean; Print clade constraints with missing taxa added to screen, formatted for RevBayes fossilized birth-death analysis. Default FALSE.
-
 #' @return tree. Phylo object containing the starting tree,
 #'          and all tips that were added.
+#' @importFrom phytools bind.tip
+#' @importFrom phytools findMRCA
 #' @examples
 #' genera_tree <- present_tippr(tree, absent_list)
 #' @export
@@ -44,10 +45,10 @@ present_tippr <- function(tree, absent_list, echo_subtrees = NULL,
     mrca_list <- tree_df$fullnames[tree_df$genera == gen]
     print(mrca_list)
     if (length(mrca_list) > 1) {
-      loc <- findMRCA(tree, mrca_list)
+      loc <- phytools::findMRCA(tree, mrca_list)
       message(sprintf("Adding tip %s", full, " to MRCA at node %s", loc))
 #Place tip subtending MRCA of congeners.
-      tree <- suppressWarnings(bind.tip(tree, full, where = loc))
+      tree <- suppressWarnings(phytools::bind.tip(tree, full, where = loc))
       if (!is.null(echo_subtrees)){
         e_t <- echo_subtree(tree, mrca_list, full)
         cat("Subtree: ", e_t)
@@ -61,7 +62,7 @@ present_tippr <- function(tree, absent_list, echo_subtrees = NULL,
       loc <- which(tree$tip.label %in% mrca_list[1])
       message(sprintf("Adding tip %s", full ))
       message(sprintf(" as sister to %s", mrca_list[1]))
-      tree <- suppressWarnings(bind.tip(tree, full, where = loc))
+      tree <- suppressWarnings(phytools::bind.tip(tree, full, where = loc))
       found_df <- get_found(absent_list, tree)
       tree_df <- make_treedf(tree)
 

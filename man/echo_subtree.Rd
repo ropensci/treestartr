@@ -9,7 +9,7 @@ echo_subtree(tree, mrca_list, tip)
 \arguments{
 \item{tree}{Tree to which the tip will be added; object of type phylo}
 
-\item{mrca_list}{Vector of taxa. The added tip will subtend the MRCA of these taxa.}
+\item{mrca_list}{Vector of taxa. The added tip will subtend the MRCA of these taxa}
 
 \item{tip}{Taxon which will be added to the tree.}
 }

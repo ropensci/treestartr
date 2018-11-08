@@ -1,4 +1,4 @@
-library(phytools)
+library(ape)
 
 test_that("Test present_tippr(tree, absent_list)", {
   tree <- read.nexus("testdata/simple.tre")

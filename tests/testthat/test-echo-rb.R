@@ -1,5 +1,4 @@
-library(phytools)
-
+library(ape)
 test_that("Test echo_rb(tree, mrca_df)", {
   tree <- read.nexus("testdata/simple.tre")
   mrca_df <- read.csv("testdata/mrca_df.tsv", sep = "\t")

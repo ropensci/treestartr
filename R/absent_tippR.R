@@ -7,6 +7,8 @@
 #' @return tree Phylo object containing the starting tree,
 #'          and all tips that were added.
 #' @importFrom graphics plot
+#' @importFrom ape plot.phylo
+#' @importFrom phytools bind.tip
 #' @examples
 #' \dontrun{ new <- absent_tippr(tree, absent_list) }
 #' @export
