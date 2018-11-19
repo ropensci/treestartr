@@ -6,8 +6,10 @@ paper/*.texpadtmp
 README.Rmd
 README.html
 bibliography.bib
+CODE_OF_CONDUCT.md
 deprecated/
 docs/
 images/
 paper/
 refs.bib
+^codemeta\.json$

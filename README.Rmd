@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ![logo](images/logo1.png)
 [![Build Status](https://travis-ci.org/wrightaprilm/treeStartR.svg?branch=master)](https://travis-ci.org/wrightaprilm/treeStartR)
 [![codecov](https://codecov.io/gh/wrightaprilm/treeStartR/branch/master/graph/badge.svg)](https://codecov.io/gh/wrightaprilm/treeStartR)
-
+[![](https://badges.ropensci.org/239_status.svg)](https://github.com/ropensci/onboarding/issues/239)
 
 ## treeStartR
 
@@ -141,5 +141,10 @@ ape::write.nexus(new_tree, file = "data/export_example.tre")
 Here is the flowchart of the functions in `treeStartR`, and when to use them.
 
 ![](images/flowchart/flowchart.001.png)
+[![ropensci_footer](https://ropensci.org/public_images/ropensci_footer.png)](https://ropensci.org)
 
 ## References
+
+
+
+
