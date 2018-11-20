@@ -20,6 +20,10 @@ Conduct may be removed from the project team.
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be reported by 
 opening an issue or contacting maintainer [April Wright](wright.aprilm@gmail.com) directly.
+treeStartR is an [ROpenSci package](https://ropensci.org/), and thus covered by its [code of conduct](https://ropensci.org/coc/).
+If, for any reason, you feel uncomfortable reporting violations to treeStartR personnel,
+they can be reported to the [ROpenSci conduct team](conduct@ropensci.org).  
+
 
 This Code of Conduct is adapted from the Contributor Covenant, version 1.0.0, 
 available at https://www.contributor-covenant.org/version/1/0/0/code-of-conduct.html
