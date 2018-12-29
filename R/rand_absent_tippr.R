@@ -46,7 +46,8 @@ rand_absent_tippr <- function(tree, absent_list, echo_subtrees = NULL,
       num <- num + 1
     }
     print(num)
-    tree <- suppressWarnings(phytools::bind.tip(tree, tip, where = num))
+    tree <- ape::multi2di(tree)
+    tree <- suppressWarnings(phytools::bind.tip(tree, tip, where = num, edge.length=.05))
     if (!is.null(echo_revbayes)){
       parent <- phytools::getParent(tree, num)
       sub_list <- ape::extract.clade(tree, parent)
