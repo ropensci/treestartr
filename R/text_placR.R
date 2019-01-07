@@ -22,6 +22,9 @@ text_placr <- function(tree, mrca_df, echo_subtrees = NULL,
   iter <- unique(as.character(mrca_df$taxon))
 #Get taxa to place
     for (tax in iter) {
+    if (tax %in% tree$tip.label){
+      next
+    }
     message("Placing tip ", tax)
     mrca_list <- mrca_df$clade[mrca_df$taxon == tax]
     if (length(mrca_list) == 1) {
