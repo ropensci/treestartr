@@ -6,7 +6,7 @@ Authors@R: person("April", "Wright", role = c("aut", "cre"),
 	email = "april.wright@selu.edu")
 Description: Combine a list of taxa with a phylogeny to generate a starting tree for use in
     total evidence dating analyses.
-URL: https://ropensci.github.io/treeStartR/
+URL: https://docs.ropensci.org/treestartr/
 BugReports: https://github.com/ropensci/treeStartR/issues
 License: MIT + file LICENSE
 Depends:
